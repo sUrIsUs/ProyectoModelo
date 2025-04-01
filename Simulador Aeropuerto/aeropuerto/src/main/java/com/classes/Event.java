@@ -11,7 +11,7 @@ public abstract class Event {
         this.entity = entity;
     }
 
-    public abstract void planificate(FEL fel, Event event, Distribution distribution, Randomizer randomizer);
+    public abstract void planificate(FEL fel, Server server, Event event, Distribution distribution, Randomizer randomizer);
 
     public int getType() {
         return type;

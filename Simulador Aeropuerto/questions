@@ -1,2 +1,21 @@
-- Distribution explanation
+- Distribution explanation 
+    + Es el comportamiento del evento, es donde sacamos el tiempo del evento
 - Bootstraping concept explanation
+    + Es el motor de nuestra simulación. Sin ella la simulación no puede comenzar
+
+
+Tasks
+
+- Entity ✅
+- Evento ✅
+- FEL 
+- Randomizer
+- Distribution
+- Arrival
+- Departure
+- Behavior
+- Server
+- Queue (Server) ✅ 
+- Comparator
+- Bootstrapping
+ 
