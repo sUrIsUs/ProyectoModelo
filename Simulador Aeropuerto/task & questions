@@ -4,19 +4,22 @@
     + Es el motor de nuestra simulación. Sin ella la simulación no puede comenzar
 - Pasaje por valor y direccion (lista de servers)
 
+-Manera de calcular estadisticas?
+
 
 Tasks
 
 - Entity ✅
 - Evento ✅
-- FEL 
+- FEL ✅
 - Randomizer ✅
 - Distribution ✅
-- Arrival
-- Departure
+- Arrival 
+- Departure 
 - Behavior
 - Server
 - Queue (Server) ✅ 
 - Comparator
 - Bootstrapping
- 
+- Stats Entity
+- Stats Event 

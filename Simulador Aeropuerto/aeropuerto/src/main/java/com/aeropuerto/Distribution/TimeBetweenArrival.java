@@ -4,6 +4,9 @@ import com.bootstrapping.Distribution;
 import com.bootstrapping.Randomizer;
 
 public class TimeBetweenArrival implements Distribution {
+
+    public TimeBetweenArrival(){}
+
     @Override
     public double generateTime(Randomizer randomizer) {
         double random = randomizer.next();

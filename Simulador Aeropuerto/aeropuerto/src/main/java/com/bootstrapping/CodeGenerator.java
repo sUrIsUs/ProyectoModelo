@@ -1,4 +1,4 @@
-package com.bootstrapping.codeGenerator;
+package com.bootstrapping;
 
 public interface CodeGenerator {
     

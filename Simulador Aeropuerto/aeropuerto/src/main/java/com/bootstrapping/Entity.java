@@ -1,18 +1,15 @@
 package com.bootstrapping;
 
 public abstract class Entity {
-private int number;
 
-    public Entity(int number) {
-        this.number = number;
+    private int code;
+
+    public Entity(CodeGenerator codeGenerator) {
+        this.code = codeGenerator.nextCode();
     }
 
-    public int getNumber() {
-        return number;
+    public int getCode() {
+        return this.code;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-    
 }

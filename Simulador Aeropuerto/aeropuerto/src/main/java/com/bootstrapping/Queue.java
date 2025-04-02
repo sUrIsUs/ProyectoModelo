@@ -22,4 +22,8 @@ public final class Queue {
         return this.queue.isEmpty();
     }
 
+    public int size(){
+        return this.queue.size();
+    }
+
 }

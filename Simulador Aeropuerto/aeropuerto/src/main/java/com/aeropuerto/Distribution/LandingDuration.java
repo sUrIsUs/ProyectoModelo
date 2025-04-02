@@ -5,6 +5,8 @@ import com.bootstrapping.Randomizer;
 
 public class LandingDuration implements Distribution {
 
+    public LandingDuration(){}
+    
     @Override
     public double generateTime(Randomizer randomizer) {
         double random = randomizer.next();
