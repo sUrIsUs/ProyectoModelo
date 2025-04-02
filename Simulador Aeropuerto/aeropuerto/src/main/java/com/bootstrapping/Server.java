@@ -1,4 +1,4 @@
-package com.classes;
+package com.bootstrapping;
 
 public class Server {
     

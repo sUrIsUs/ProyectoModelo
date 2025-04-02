@@ -2,6 +2,7 @@
     + Es el comportamiento del evento, es donde sacamos el tiempo del evento
 - Bootstraping concept explanation
     + Es el motor de nuestra simulación. Sin ella la simulación no puede comenzar
+- Pasaje por valor y direccion (lista de servers)
 
 
 Tasks
@@ -9,8 +10,8 @@ Tasks
 - Entity ✅
 - Evento ✅
 - FEL 
-- Randomizer
-- Distribution
+- Randomizer ✅
+- Distribution ✅
 - Arrival
 - Departure
 - Behavior

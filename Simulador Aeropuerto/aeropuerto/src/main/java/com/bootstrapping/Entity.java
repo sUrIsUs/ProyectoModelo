@@ -1,7 +1,7 @@
-package com.classes;
+package com.bootstrapping;
 
-public class Entity {
-    int number;
+public abstract class Entity {
+private int number;
 
     public Entity(int number) {
         this.number = number;
