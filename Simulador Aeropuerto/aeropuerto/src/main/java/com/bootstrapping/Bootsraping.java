@@ -1,12 +1,14 @@
 package com.bootstrapping;
 
+import com.bootstrapping.statistics.Statistics;
+
 public abstract class Bootsraping{
 
     private FEL fel;
     private Servers servers;
     private double simulationLenght;
     private double clock;
-    private BootsrapingStatistics bootsrapingStatistics;
+    private Statistics statistics;
 
     public Bootsraping(double simulationLenght) {
         this.fel = new FEL();
@@ -15,6 +17,15 @@ public abstract class Bootsraping{
         this.clock = 0;
     }
 
-    public abstract void startSimulation();
+    public abstract void startSimulation(
+        // Inicializar fel
+
+        // Empiezo simulacion
+        while(simulationLenght >= clock){
+            Event inminent = fel.inminent();
+            inminent.planificate(fel, servers, inminent, null, null);
+            System.out.println("Espera" + statistics.getWait().getTemporalWait());
+        }
+    );
 
 }

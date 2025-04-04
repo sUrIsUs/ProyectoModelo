@@ -1,4 +1,4 @@
-package com.aeropuerto.scenario.events;
+package com.bootstrapping.events;
 import com.aeropuerto.Distribution.TimeBetweenArrival;
 import com.aeropuerto.scenario.Aircraft;
 import com.aeropuerto.scenario.stats.AirportStatistics;
@@ -10,7 +10,7 @@ import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.Server;
 import com.bootstrapping.Servers;
-import com.bootstrapping.Statistics;
+import com.bootstrapping.statistics.Statistics;
 
 public class Departure extends Event {
 
@@ -21,21 +21,21 @@ public class Departure extends Event {
     }
 
     @Override
-    public void planificate(FEL fel, Servers servers, Event event, Randomizer randomizer, Statistics airportStatistics) {
+    public void planificate(FEL fel, Servers servers, Event event, Randomizer randomizer, Statistics statistics) {
         Server server = servers.getServer();
-        //los servers estan okupas
+        // Los servers estan okupas
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
         }
         else{
             Arrival arrival = (Arrival)server.getQueue().pop();
             fel.addEvent(new Departure(0, event.getClock(), arrival.getEntity()));
-            //arribo + 1
+            // Arribo + 1
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft()));
-        //salida + 1
-        //estadisticas
+        // Estadisticas
+        statistics.setTransitTime();
     }
     
 }

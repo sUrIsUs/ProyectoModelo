@@ -3,7 +3,7 @@ package com.aeropuerto.scenario;
 import java.util.List;
 
 import com.bootstrapping.Bootsraping;
-import com.bootstrapping.Statistics;
+import com.bootstrapping.statistics.Statistics;
 
 public class AeropuertoB extends Bootsraping{
 

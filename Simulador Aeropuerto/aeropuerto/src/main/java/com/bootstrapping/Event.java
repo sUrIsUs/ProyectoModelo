@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.aeropuerto.scenario.stats.ArrivalInstances;
 import com.aeropuerto.scenario.stats.DepartureInstances;
+import com.bootstrapping.statistics.Statistics;
 
 public abstract class Event {
     int type; // 0 -> Departure, 1 -> End, 2 -> Arrival

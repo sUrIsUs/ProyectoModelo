@@ -1,6 +1,6 @@
 package com.aeropuerto.scenario.stats;
 
-import com.bootstrapping.Statistics;
+import com.bootstrapping.statistics.Statistics;
 
 public class AirportStatistics implements Statistics{
     

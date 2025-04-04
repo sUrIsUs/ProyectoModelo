@@ -2,9 +2,8 @@
     + Es el comportamiento del evento, es donde sacamos el tiempo del evento
 - Bootstraping concept explanation
     + Es el motor de nuestra simulación. Sin ella la simulación no puede comenzar
-- Pasaje por valor y direccion (lista de servers)
-
--Manera de calcular estadisticas?
+- Manera de calcular estadisticas?
+    + Hacer clase abstracta Statistics con todas las cuestiones, no importa si quedan atributos y metodos que el usuario no utilice
 
 
 Tasks
@@ -21,5 +20,4 @@ Tasks
 - Queue (Server) ✅ 
 - Comparator
 - Bootstrapping
-- Stats Entity
-- Stats Event 
+- Statistics ✅
