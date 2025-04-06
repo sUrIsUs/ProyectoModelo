@@ -17,15 +17,16 @@ public abstract class Bootsraping{
         this.clock = 0;
     }
 
-    public abstract void startSimulation(
+    public void startSimulation(){
         // Inicializar fel
 
         // Empiezo simulacion
         while(simulationLenght >= clock){
             Event inminent = fel.inminent();
             inminent.planificate(fel, servers, inminent, null, null);
+            // Completar
             System.out.println("Espera" + statistics.getWait().getTemporalWait());
         }
-    );
+    }
 
 }

@@ -1,10 +1,14 @@
 package com.bootstrapping;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+
+import com.bootstrapping.comparators.EventSort;
 
 public class FEL {
     private List<Event> fel;
+    private EventSort eventSort;
 
     public FEL(){
         fel = new ArrayList<>();

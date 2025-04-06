@@ -1,4 +1,6 @@
-package com.bootstrapping;
+package com.bootstrapping.distribution;
+
+import com.bootstrapping.Randomizer;
 
 public interface Distribution {
 

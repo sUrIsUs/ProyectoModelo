@@ -3,8 +3,8 @@ package com.bootstrapping.statistics;
 public class Statistics {
 
     // Variables para indicar la cantidad de instancias de los eventos de arribo y salidas
-    private int arrivalInstances;
-    private int departureInstances;
+    private static int arrivalInstances;
+    private static int departureInstances;
     
     private Idle idle;
     private Transit transit;
@@ -38,8 +38,13 @@ public class Statistics {
     public Wait getWait() {
         return wait;
     }
-
     
+    public void incrementArrivalInstances(){
+        arrivalInstances++;
+    }
 
+    public void incrementDepartureInstances(){
+        departureInstances++;
+    }
 
 }

@@ -11,7 +11,7 @@ public class Servers {
     }
 
     public Server getServer(){
-    
+        // Implementar selcción prioritario de server
     }
     
 }

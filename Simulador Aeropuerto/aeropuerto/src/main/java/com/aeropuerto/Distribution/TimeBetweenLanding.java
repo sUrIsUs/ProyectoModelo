@@ -1,11 +1,11 @@
 package com.aeropuerto.Distribution;
 
-import com.bootstrapping.Distribution;
 import com.bootstrapping.Randomizer;
+import com.bootstrapping.distribution.Distribution;
 
-public class TimeBetweenArrival implements Distribution {
+public class TimeBetweenLanding extends TimeBetweenArrival {
 
-    public TimeBetweenArrival(){}
+    public TimeBetweenLanding(){}
 
     @Override
     public double generateTime(Randomizer randomizer) {
