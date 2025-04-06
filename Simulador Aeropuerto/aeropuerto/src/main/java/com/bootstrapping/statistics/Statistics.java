@@ -9,6 +9,9 @@ public class Statistics {
     private Idle idle;
     private Transit transit;
     private Wait wait;
+    private double arrivalClock;
+    private double departureClock;
+    private double serviceClock;
     
     public Statistics() {
         this.idle = new Idle();
@@ -16,23 +19,23 @@ public class Statistics {
         this.wait = new Wait();
     }
     // Variables estáticas
-
+    
     public int getArrivalInstances() {
         return arrivalInstances;
     }
-
+    
     public int getDepartureInstances() {
         return departureInstances;
     }
-
+    
     public Idle getIdle() {
         return idle;
     }
-
+    
     public Transit getTransit() {
         return transit;
     }
-
+    
     public Wait getWait() {
         return wait;
     }
@@ -40,9 +43,32 @@ public class Statistics {
     public void incrementArrivalInstances(){
         arrivalInstances++;
     }
-
+    
     public void incrementDepartureInstances(){
         departureInstances++;
     }
-
+    
+    public double getArrivalClock() {
+        return arrivalClock;
+    }
+    
+    public void setArrivalClock(double arrivalClock) {
+        this.arrivalClock = arrivalClock;
+    }
+    
+    public double getDepartureClock() {
+        return departureClock;
+    }
+    
+    public void setDepartureClock(double departureClock) {
+        this.departureClock = departureClock;
+    }
+    
+    public double getServiceClock() {
+        return serviceClock;
+    }
+    
+    public void setServiceClock(double serviceClock) {
+        this.serviceClock = serviceClock;
+    }
 }

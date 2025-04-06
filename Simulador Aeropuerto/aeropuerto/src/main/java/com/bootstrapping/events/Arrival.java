@@ -39,15 +39,15 @@ public class Arrival extends Event {
         // Si no esta ocupado, genero su salida
         else{
             server.setEntity(arrival.getEntity());
-            Departure departure = new Departure(0, serverDuration.generateTime(randomizer), arrival.getEntity());
-            server.getStatistics().getTransit().determineTransit(departure.getClock() - arrival.getClock());
-            fel.addEvent(departure);
+            fel.addEvent(new Departure(0, serverDuration.generateTime(randomizer), arrival.getEntity()));
             server.getStatistics().incrementArrivalInstances();
+            server.getStatistics().setArrivalClock(arrival.getClock());
+            server.getStatistics().setServiceClock(arrival.getClock());
+            //asignar arrival clock
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft()));
         // Estadisticas
-        server.getStatistics().getIdle().determineIdle(this.clock - server.getLastDeparture()); // Completar argumento!!1!
     }
     
 }

@@ -19,29 +19,33 @@ public class Departure extends Event {
     }
 
     @Override
-    public void planificate(FEL fel, Servers servers, Event event, Randomizer randomizer) {
+    public void planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer) {
         Server server = servers.getServer();
-        Departure departure;
-        Arrival arrival;
+        Arrival arrival = null;
+        server.getStatistics().setDepartureClock(departure.getClock());
         // Los servers estan okupas
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
+
             }
             else{
                 arrival = (Arrival)server.getQueue().pop();
-                server.getStatistics().getWait().determineWait(event.getClock() - arrival.getClock());
-                departure = new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity())
-                fel.addEvent(departure);
+                fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity()));
                 server.getStatistics().incrementArrivalInstances();
             }
             // Planifico nuevo arribo
             fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft()));
             // Estadisticas
-        server.getStatistics().getTransit().determineTransit(event.getClock() - ( + server.getStatistics().getWait().getTemporalWait()));
         server.getStatistics().incrementDepartureInstances();
-        server.getStatistics().getTransit().determineTransit(0); // Completar argumento!!1!
-        //Mostrar estadisticas
-        server.getStatistics().getTransit().determineTransit(departure.getClock() - arrival.getClock());
-    }
+        server.getStatistics().getTransit().determineTransit(server.getStatistics().getDepartureClock() - server.getStatistics().getArrivalClock()); // Completar argumento!!
+        server.getStatistics().getIdle().determineIdle( - server.getLastDeparture()); // Completar argumento!!1!
+        server.getStatistics().getWait().determineWait(clock);
+        //muestro estadisticas
+        if(arrival != null){
+
+            server.getStatistics().setArrivalClock(arrival.getClock());
+            server.getStatistics().setServiceClock(departure.getClock() - arrival.getClock());
+        
+        }}
     
 }
