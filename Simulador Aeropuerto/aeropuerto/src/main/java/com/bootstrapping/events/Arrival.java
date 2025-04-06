@@ -8,12 +8,13 @@ import com.aeropuerto.scenario.stats.AirportStatistics;
 import com.aeropuerto.scenario.stats.ArrivalInstances;
 import com.aeropuerto.scenario.stats.DepartureInstances;
 import com.bootstrapping.Entity;
-import com.bootstrapping.Event;
 import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
-import com.bootstrapping.Server;
-import com.bootstrapping.Servers;
 import com.bootstrapping.distribution.Distribution;
+import com.bootstrapping.distribution.ServiceDuration;
+import com.bootstrapping.distribution.TimeBetweenArrival;
+import com.bootstrapping.server.Server;
+import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.Statistics;
 
 public class Arrival extends Event {
@@ -24,7 +25,7 @@ public class Arrival extends Event {
     public Arrival(int type, double clock, Entity entity) {
         super(type, clock, entity);
         serverDuration = new ServiceDuration();
-        timeBetweenArrival = new TimeBetweenLanding();
+        timeBetweenArrival = new TimeBetweenArrival();
     }
 
 
@@ -38,14 +39,15 @@ public class Arrival extends Event {
         // Si no esta ocupado, genero su salida
         else{
             server.setEntity(arrival.getEntity());
-            fel.addEvent(new Departure(0, serverDuration.generateTime(randomizer), arrival.getEntity()));
+            Departure departure = new Departure(0, serverDuration.generateTime(randomizer), arrival.getEntity());
+            server.getStatistics().getTransit().determineTransit(departure.getClock() - arrival.getClock());
+            fel.addEvent(departure);
             server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft()));
         // Estadisticas
-        server.getStatistics().getIdle().determineIdle(0); // Completar argumento!!1!
-
+        server.getStatistics().getIdle().determineIdle(this.clock - server.getLastDeparture()); // Completar argumento!!1!
     }
     
 }

@@ -1,6 +1,8 @@
-package com.bootstrapping;
+package com.bootstrapping.server;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.bootstrapping.events.Event;
 
 public final class Queue {
 

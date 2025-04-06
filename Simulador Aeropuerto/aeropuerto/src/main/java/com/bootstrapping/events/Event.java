@@ -1,9 +1,13 @@
-package com.bootstrapping;
+package com.bootstrapping.events;
 
 import java.util.List;
 
 import com.aeropuerto.scenario.stats.ArrivalInstances;
 import com.aeropuerto.scenario.stats.DepartureInstances;
+import com.bootstrapping.Entity;
+import com.bootstrapping.FEL;
+import com.bootstrapping.Randomizer;
+import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.Statistics;
 
 public abstract class Event {

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import com.bootstrapping.comparators.EventSort;
+import com.bootstrapping.comparators.EventPrioritizer;
+import com.bootstrapping.events.Event;
 
 public class FEL {
     private List<Event> fel;
-    private EventSort eventSort;
+    private EventPrioritizer eventSort;
 
     public FEL(){
         fel = new ArrayList<>();

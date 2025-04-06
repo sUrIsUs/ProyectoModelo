@@ -13,7 +13,7 @@ public class Wait {
     public void determineWait(double wait){
         this.temporalWait = wait;
         totalWait += this.temporalWait;
-        // Calculo el Waito maximo
+        // Calculo el Wait maximo
         if(this.temporalWait > maxWait){
             maxWait = this.temporalWait; 
         }

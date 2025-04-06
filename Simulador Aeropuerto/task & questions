@@ -8,16 +8,46 @@
 
 Tasks
 
-- Entity ✅
-- Evento ✅
+---Bootstrap
+- Bootstrapping
 - FEL ✅
+- Entity ✅
+
+---Randomizer
 - Randomizer ✅
-- Distribution ✅
+
+---Scenario
+- AirportRandomizer
+- TestRandomizer
+
+--Events
+- Evento ✅
 - Arrival 
 - Departure 
-- Behavior
+
+---Server
 - Server
+- Servers
 - Queue (Server) ✅ 
-- Comparator
-- Bootstrapping
+
+---Statistics
 - Statistics ✅
+- Idle
+- Wait
+- Transit
+
+---Comparator
+- ServerPrioritizer
+- EventPrioritizer
+
+---CodeGenerator
+- CodeGenerator ✅😡
+- AircraftCodeGenerator
+- ArrivalCodeGenerator
+
+---Distributions
+- Distribution ✅
+- ServerDuration
+- TimeBetweenArrival
+- TimeBetweenArrival
+- LandingDuration

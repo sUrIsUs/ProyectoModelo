@@ -1,4 +1,4 @@
-package com.bootstrapping;
+package com.bootstrapping.server;
 
 import java.util.ArrayList;
 import java.util.List;
