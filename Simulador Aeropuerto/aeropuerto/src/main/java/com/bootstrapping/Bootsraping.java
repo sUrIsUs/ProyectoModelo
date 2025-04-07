@@ -1,5 +1,6 @@
 package com.bootstrapping;
 
+import com.bootstrapping.events.Departure;
 import com.bootstrapping.events.Event;
 import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.Statistics;
@@ -26,8 +27,9 @@ public abstract class Bootsraping{
         while(simulationLenght >= clock){
             Event inminent = fel.inminent();
             inminent.planificate(fel, servers, inminent, null, null);
-            // Completar
-            System.out.println("Espera" + statistics.getWait().getTemporalWait());
+            if(inminent instanceof Departure){
+                server.getsStatistics().computeStatistics(inminent.getEntity().getEntityHistory());
+            }
         }
     }
 

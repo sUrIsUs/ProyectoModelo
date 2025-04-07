@@ -7,47 +7,51 @@
 
 
 Tasks
+- Bootstrap
+    + Bootstrapping
+    + FEL ✅
+    + Entity ✅
 
----Bootstrap
-- Bootstrapping
-- FEL ✅
-- Entity ✅
+- entity
+    + Entity
+    + EntityHistory ✅
 
----Randomizer
-- Randomizer ✅
+- Randomizer
+    + Randomizer ✅
 
----Scenario
-- AirportRandomizer
-- TestRandomizer
+- Scenario
+    + AirportRandomizer
+    + TestRandomizer
+    + AirportStatistics ✅
 
---Events
-- Evento ✅
-- Arrival 
-- Departure 
+- Events
+    + Evento ✅
+    + Arrival 
+    + Departure 
 
----Server
 - Server
-- Servers
-- Queue (Server) ✅ 
+    + Server
+    + Servers
+    + Queue (Server) ✅ 
 
----Statistics
-- Statistics ✅
-- Idle
-- Wait
-- Transit
+- Statistics
+    + Statistics ✅
+    + Idle ✅👏🏻
+    + Wait ✅
+    + Transit ✅
 
----Comparator
-- ServerPrioritizer
-- EventPrioritizer
+- Comparator
+    + ServerPrioritizer
+    + EventPrioritizer
 
----CodeGenerator
-- CodeGenerator ✅😡
-- AircraftCodeGenerator
-- ArrivalCodeGenerator
+- CodeGenerator
+    + CodeGenerator ✅😡
+    + AircraftCodeGenerator
+    + ArrivalCodeGenerator
 
----Distributions
-- Distribution ✅
-- ServerDuration
-- TimeBetweenArrival
-- TimeBetweenArrival
-- LandingDuration
+- Distributions
+    + Distribution ✅
+    + ServerDuration
+    + TimeBetweenArrival
+    + TimeBetweenArrival
+    + LandingDuration

@@ -11,7 +11,7 @@ public class Idle {
         this.temporalIdle = 0;
     }
 
-    public void determineIdle(double idle){
+    public void acumulateIdle(double idle){
         this.temporalIdle = idle;
         totalIdle += this.temporalIdle;
         // Calculo el Idleo maximo

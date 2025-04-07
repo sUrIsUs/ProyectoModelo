@@ -1,20 +1,24 @@
 package com.bootstrapping.server;
 
-import com.bootstrapping.Entity;
+import com.bootstrapping.CodeGenerator;
+import com.bootstrapping.entity.Entity;
 import com.bootstrapping.statistics.Statistics;
 
 public class Server {
     
     private Entity entity;
+    private int id;
+    
     private final Queue queue = new Queue();
     private Statistics statistics;
     private double lastDeparture;
     
     
-    public Server(Queue queue) {
+    public Server(Queue queue, CodeGenerator codeGenerator) {
         this.entity = null;
         this.statistics = new Statistics();
         this.lastDeparture = 0;
+        this.id = codeGenerator.nextCode();
     }
     
     public boolean isBusy(){
@@ -40,5 +44,12 @@ public class Server {
     public void setLastDeparture(double lastDeparture) {
         this.lastDeparture = lastDeparture;
     }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getId(){
+        return this.id;
+    }
 }

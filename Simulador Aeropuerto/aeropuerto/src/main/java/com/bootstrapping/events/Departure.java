@@ -1,10 +1,10 @@
 package com.bootstrapping.events;
 import com.aeropuerto.Distribution.TimeBetweenLanding;
 import com.aeropuerto.scenario.Aircraft;
-import com.bootstrapping.Entity;
 import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
+import com.bootstrapping.entity.Entity;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 
@@ -19,33 +19,25 @@ public class Departure extends Event {
     }
 
     @Override
-    public void planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer) {
-        Server server = servers.getServer();
-        Arrival arrival = null;
-        server.getStatistics().setDepartureClock(departure.getClock());
+    public Server planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer) {
+        Server server = servers.getServerId();
         // Los servers estan okupas
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
 
-            }
-            else{
-                arrival = (Arrival)server.getQueue().pop();
-                fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity()));
-                server.getStatistics().incrementArrivalInstances();
-            }
-            // Planifico nuevo arribo
-            fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft()));
-            // Estadisticas
-        server.getStatistics().incrementDepartureInstances();
-        server.getStatistics().getTransit().determineTransit(server.getStatistics().getDepartureClock() - server.getStatistics().getArrivalClock()); // Completar argumento!!
-        server.getStatistics().getIdle().determineIdle( - server.getLastDeparture()); // Completar argumento!!1!
-        server.getStatistics().getWait().determineWait(clock);
-        //muestro estadisticas
-        if(arrival != null){
-
-            server.getStatistics().setArrivalClock(arrival.getClock());
-            server.getStatistics().setServiceClock(departure.getClock() - arrival.getClock());
+        }
+        else{
+            Arrival arrival = (Arrival)server.getQueue().pop();
+            arrival.getEntity().getEntityHistory().setArrivalClock(this.clock);
+            fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity()));
+            server.getStatistics().incrementArrivalInstances();
+        }
+        // Planifico nuevo arribo
+        fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft())); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
         
-        }}
+        // Estadisticas
+        // Computar estadísticas con los atributos de entidad
+        return server;
+    }
     
 }

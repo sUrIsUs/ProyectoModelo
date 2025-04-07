@@ -10,7 +10,7 @@ public class Wait {
         this.temporalWait = 0;
     }
 
-    public void determineWait(double wait){
+    public void aculuteWait(double wait){
         this.temporalWait = wait;
         totalWait += this.temporalWait;
         // Calculo el Wait maximo

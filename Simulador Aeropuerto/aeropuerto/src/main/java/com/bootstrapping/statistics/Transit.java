@@ -10,7 +10,7 @@ public class Transit {
         this.temporalTransit = 0;
     }
 
-    public void determineTransit(double transit){
+    public void acumulateTransit(double transit){
         this.temporalTransit = transit;
         totalTransit += this.temporalTransit;
         // Calculo el transito maximo

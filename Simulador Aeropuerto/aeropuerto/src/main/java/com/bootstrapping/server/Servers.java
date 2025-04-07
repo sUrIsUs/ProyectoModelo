@@ -13,5 +13,10 @@ public class Servers {
     public Server getServer(){
         // Implementar selcción prioritario de server
     }
+
+    public Server getServerId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getServerId'");
+    }
     
 }
