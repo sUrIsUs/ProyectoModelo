@@ -1,3 +1,5 @@
 {
-    "java.checkstyle.configuration": "${workspaceFolder}\\aeropuerto\\checkstyle.xml"
+    "java.checkstyle.configuration": "${workspaceFolder}\\aeropuerto\\checkstyle.xml",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.debug.settings.onBuildFailureProceed": true
 }

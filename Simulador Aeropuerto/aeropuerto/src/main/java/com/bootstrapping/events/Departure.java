@@ -1,10 +1,10 @@
 package com.bootstrapping.events;
 import com.aeropuerto.Distribution.TimeBetweenLanding;
 import com.aeropuerto.scenario.Aircraft;
-import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.fel.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 
@@ -34,9 +34,7 @@ public class Departure extends Event {
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft())); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
-        
-        // Estadisticas
-        // Computar estadísticas con los atributos de entidad
+        // Retorno el servidor utilizado para mostrar las estadísticas
         return server;
     }
     

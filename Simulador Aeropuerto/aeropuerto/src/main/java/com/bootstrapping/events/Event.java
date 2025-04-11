@@ -1,7 +1,7 @@
 package com.bootstrapping.events;
-import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.fel.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 

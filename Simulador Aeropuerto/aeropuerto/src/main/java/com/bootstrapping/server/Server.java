@@ -9,16 +9,17 @@ public class Server {
     private Entity entity;
     private int id;
     
-    private final Queue queue = new Queue();
+    private final Queue queue;
     private Statistics statistics;
     private double lastDeparture;
     
     
-    public Server(Queue queue, CodeGenerator codeGenerator) {
+    public Server(CodeGenerator codeGenerator, Statistics statistics) {
         this.entity = null;
-        this.statistics = new Statistics();
-        this.lastDeparture = 0;
         this.id = codeGenerator.nextCode();
+        this.queue = new Queue();
+        this.statistics = statistics;
+        this.lastDeparture = 0;
     }
     
     public boolean isBusy(){

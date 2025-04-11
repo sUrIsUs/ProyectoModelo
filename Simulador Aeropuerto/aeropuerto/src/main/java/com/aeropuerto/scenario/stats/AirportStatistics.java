@@ -19,6 +19,7 @@ public class AirportStatistics extends Statistics{
         this.getTransit().acumulateTransit(departure.getClock() - arrival.getClock());
         this.getIdle().acumulateIdle(arrival.getClock() - server.getLastDeparture());
         this.getWait().aculuteWait(entityHistory.getArrivalClock() - arrival.getClock());
+        server.setLastDeparture(departure.getClock());
         System.out.println();
     }
 

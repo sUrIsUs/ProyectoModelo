@@ -7,12 +7,12 @@ import com.aeropuerto.scenario.Aircraft;
 import com.aeropuerto.scenario.stats.AirportStatistics;
 import com.aeropuerto.scenario.stats.ArrivalInstances;
 import com.aeropuerto.scenario.stats.DepartureInstances;
-import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.Distribution;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.fel.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.Statistics;
@@ -46,8 +46,7 @@ public class Arrival extends Event {
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft())); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
-        // Estadisticas
-        // Computar estadísticas con los atributos de entidad
+        // Retorna el servidor utilizado
         return server;
     }
     
