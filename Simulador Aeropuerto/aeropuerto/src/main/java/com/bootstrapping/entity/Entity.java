@@ -1,8 +1,6 @@
 package com.bootstrapping.entity;
 
-import java.util.List;
 import com.bootstrapping.CodeGenerator;
-import com.bootstrapping.events.Event;
 
 public abstract class Entity {
 
@@ -30,4 +28,5 @@ public abstract class Entity {
     public EntityHistory getEntityHistory() {
         return entityHistory;
     }
+    
 }

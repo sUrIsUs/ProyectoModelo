@@ -1,7 +1,5 @@
 package com.bootstrapping.statistics;
 
-import java.security.KeyStore.Entry;
-
 import com.bootstrapping.entity.EntityHistory;
 import com.bootstrapping.server.Server;
 

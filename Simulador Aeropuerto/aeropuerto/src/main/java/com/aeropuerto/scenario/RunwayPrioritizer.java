@@ -1,9 +1,11 @@
 package com.aeropuerto.scenario;
 
-import java.util.Comparator;
+import com.bootstrapping.comparators.ServerPrioritizer;
 import com.bootstrapping.server.Server;
 
-public class RunwayPrioritizer implements Comparator<Server>{
+public class RunwayPrioritizer extends ServerPrioritizer{
+
+    public RunwayPrioritizer(){}
 
     @Override
     public int compare(Server s1, Server s2) {

@@ -1,31 +1,23 @@
 package com.bootstrapping.events;
 
-
-import com.aeropuerto.Distribution.LandingDuration;
-import com.aeropuerto.Distribution.TimeBetweenLanding;
 import com.aeropuerto.scenario.Aircraft;
-import com.aeropuerto.scenario.stats.AirportStatistics;
-import com.aeropuerto.scenario.stats.ArrivalInstances;
-import com.aeropuerto.scenario.stats.DepartureInstances;
 import com.bootstrapping.Randomizer;
-import com.bootstrapping.distribution.Distribution;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 import com.bootstrapping.entity.Entity;
-import com.bootstrapping.fel.FEL;
+import com.bootstrapping.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
-import com.bootstrapping.statistics.Statistics;
 
 public class Arrival extends Event {
 
-    private Distribution serverDuration;
-    private Distribution timeBetweenArrival;
+    private ServiceDuration serviceDuration;
+    private TimeBetweenArrival timeBetweenArrival;
 
-    public Arrival(int type, double clock, Entity entity) {
-        super(type, clock, entity);
-        serverDuration = new ServiceDuration();
-        timeBetweenArrival = new TimeBetweenArrival();
+    public Arrival(int codeArrival, double clock, Entity entity, ServiceDuration serviceDuration, TimeBetweenArrival timeBetweenArrival) {
+        super(codeArrival, clock, entity);
+        this.serviceDuration = serviceDuration;
+        this.timeBetweenArrival = timeBetweenArrival;
     }
 
 
@@ -41,11 +33,11 @@ public class Arrival extends Event {
         else{
             arrival.getEntity().getEntityHistory().setArrivalClock(this.clock);
             server.setEntity(arrival.getEntity());
-            fel.addEvent(new Departure(0, serverDuration.generateTime(randomizer), arrival.getEntity()));
+            fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
             server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft())); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
         // Retorna el servidor utilizado
         return server;
     }

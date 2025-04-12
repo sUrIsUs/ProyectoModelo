@@ -2,11 +2,10 @@ package com.bootstrapping.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.bootstrapping.events.Event;
 
 public class EntityHistory {
-    private List<Event> entityHistory;
+    private List<Event> entityHistory; //0 arrival 1 departure 
     private double arrivalClock;
 
     
@@ -14,15 +13,14 @@ public class EntityHistory {
         this.entityHistory = new ArrayList<>(); 
     }
     
-    public Event getDeparture() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDeparture'");
+    public Event getArrival() {
+        return entityHistory.get(0);
     }
     
-    public Event getArrival() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArrival'");
+    public Event getDeparture() {
+        return entityHistory.get(1);
     }
+
     public double getArrivalClock() {
         return arrivalClock;
     }

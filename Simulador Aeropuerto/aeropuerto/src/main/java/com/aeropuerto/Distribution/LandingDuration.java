@@ -1,7 +1,6 @@
 package com.aeropuerto.Distribution;
 
 import com.bootstrapping.Randomizer;
-import com.bootstrapping.distribution.Distribution;
 import com.bootstrapping.distribution.ServiceDuration;
 
 public class LandingDuration extends ServiceDuration {

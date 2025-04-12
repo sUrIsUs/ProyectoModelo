@@ -1,23 +1,24 @@
 package com.bootstrapping.server;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
+import com.bootstrapping.comparators.ServerPrioritizer;
 import com.bootstrapping.statistics.Statistics;
 
 public class Servers {
     private List<Server> servers;
     private ServerCodeGenerator serverCodeGenerator;
-    private Comparator<Server> comparator;
+    private ServerPrioritizer serverPrioritizer;
 
-    public Servers(Comparator<Server> comparator) {
+    public Servers(ServerPrioritizer serverPrioritizer) {
         this.servers = new ArrayList<>();
-        this.comparator = comparator;
+        this.serverPrioritizer = serverPrioritizer;
+        serverCodeGenerator = new ServerCodeGenerator();
     }
 
     public Server getServer(){
-        this.servers.sort(this.comparator);
+        this.servers.sort(this.serverPrioritizer);
         return this.servers.get(0); 
     }
 

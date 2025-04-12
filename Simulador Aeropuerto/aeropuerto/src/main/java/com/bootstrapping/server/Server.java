@@ -1,6 +1,5 @@
 package com.bootstrapping.server;
 
-import com.bootstrapping.CodeGenerator;
 import com.bootstrapping.entity.Entity;
 import com.bootstrapping.statistics.Statistics;
 
@@ -14,9 +13,9 @@ public class Server {
     private double lastDeparture;
     
     
-    public Server(CodeGenerator codeGenerator, Statistics statistics) {
+    public Server(ServerCodeGenerator serverCodeGenerator, Statistics statistics) {
         this.entity = null;
-        this.id = codeGenerator.nextCode();
+        this.id = serverCodeGenerator.nextCode();
         this.queue = new Queue();
         this.statistics = statistics;
         this.lastDeparture = 0;

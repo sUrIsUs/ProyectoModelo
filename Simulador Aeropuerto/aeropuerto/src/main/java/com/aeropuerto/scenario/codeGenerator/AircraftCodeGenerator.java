@@ -3,13 +3,13 @@ package com.aeropuerto.scenario.codeGenerator;
 import com.bootstrapping.CodeGenerator;
 
 public class AircraftCodeGenerator implements CodeGenerator {
-    private static int aircraftCoode = 1; 
+    private static int aircraftCode = 1; 
 
     public AircraftCodeGenerator(){}
 
     @Override
     public int nextCode() {
-        return AircraftCodeGenerator.aircraftCoode++;
+        return AircraftCodeGenerator.aircraftCode++;
     }
-    
+
 }

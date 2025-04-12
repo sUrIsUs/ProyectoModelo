@@ -1,5 +1,9 @@
 package com.bootstrapping.comparators;
 
-public class ServerPrioritizer {
+import java.util.Comparator;
+
+import com.bootstrapping.server.Server;
+
+public abstract class ServerPrioritizer implements Comparator<Server>{
     
 }

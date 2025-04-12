@@ -1,4 +1,4 @@
-package com.bootstrapping.fel;
+package com.bootstrapping;
 
 import java.util.ArrayList;
 import java.util.List;

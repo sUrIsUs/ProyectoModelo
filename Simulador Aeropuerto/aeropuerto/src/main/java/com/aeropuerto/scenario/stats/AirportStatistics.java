@@ -25,7 +25,7 @@ public class AirportStatistics extends Statistics{
 
     @Override
     public void computeGeneralStatistics() {
-        // MOSTRAR ESTADISTICAS GENERALES
+        System.out.println("Cantidad de aeronaves que han arribado: " + this.getArrivalInstances());
     }
     
 

@@ -4,7 +4,7 @@
     + Es el motor de nuestra simulación. Sin ella la simulación no puede comenzar
 - Manera de calcular estadisticas?
     + Hacer clase abstracta Statistics con todas las cuestiones, no importa si quedan atributos y metodos que el usuario no utilice
-
+- Es necesario mantener Entity como clase abstracta? Es decir, necesitamos la clase Aircraft?
 
 Tasks
 - Bootstrap
@@ -13,7 +13,7 @@ Tasks
     + Entity ✅
 
 - entity
-    + Entity
+    + Entity ✅
     + EntityHistory ✅
 
 - Randomizer
@@ -21,17 +21,16 @@ Tasks
 
 - Scenario
     + AirportRandomizer
-    + TestRandomizer
     + AirportStatistics ✅
 
 - Events
     + Evento ✅
-    + Arrival 
-    + Departure 
-
+    + Arrival ✅
+    + Departure ✅
+ 
 - Server
-    + Server
-    + Servers
+    + Server ✅
+    + Servers ✅
     + Queue (Server) ✅ 
 
 - Statistics
@@ -41,17 +40,27 @@ Tasks
     + Transit ✅
 
 - Comparator
-    + ServerPrioritizer
-    + EventPrioritizer
+    + ServerPrioritizer ✅
+    + EventPrioritizer ✅
 
 - CodeGenerator
     + CodeGenerator ✅😡
-    + AircraftCodeGenerator
-    + ArrivalCodeGenerator
+    + AircraftCodeGenerator ✅
+    + ArrivalCodeGenerator ✅
 
 - Distributions
     + Distribution ✅
-    + ServerDuration
-    + TimeBetweenArrival
-    + TimeBetweenArrival
-    + LandingDuration
+    + ServerDuration ✅👏🏻
+    + TimeBetweenArrival ✅
+    + TimeBetweenArrival ✅
+    + LandingDuration ✅ 🥹
+
+- Tests
+    + TestEventPrioritizer ✅
+    + TestRunwayPrioritizer ✅
+    + TestAircraftCodeGenerator
+    + TestServerCodeGenerator
+    + TestServers
+    + TestServer
+    + TestRandomizer
+    + TestStatistics
