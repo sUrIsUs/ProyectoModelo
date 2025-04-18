@@ -22,18 +22,20 @@ public class Departure extends Event {
     @Override
     public Server planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer) {
         Server server = servers.getServerId(this.entity.getServerId());
-        // Los servers estan okupas
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
         }
         else{
             Arrival arrival = (Arrival)server.getQueue().pop();
-            arrival.getEntity().getEntityHistory().setArrivalClock(this.clock);
-            fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
+            arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
+            fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
             server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft(),this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(),this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        departure.getEntity().getEntityHistory().addDeparture(departure);
+        server.getStatistics().incrementDepartureInstances();
+
         // Retorno el servidor utilizado para mostrar las estadísticas
         return server;
     }

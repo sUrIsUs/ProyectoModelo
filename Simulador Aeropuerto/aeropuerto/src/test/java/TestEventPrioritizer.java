@@ -2,8 +2,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.aeropuerto.Distribution.LandingDuration;
-import com.aeropuerto.Distribution.TimeBetweenLanding;
+import com.aeropuerto.distribution.LandingDuration;
+import com.aeropuerto.distribution.TimeBetweenLanding;
 import com.aeropuerto.scenario.Aircraft;
 import com.bootstrapping.comparators.EventPrioritizer;
 import com.bootstrapping.events.Arrival;

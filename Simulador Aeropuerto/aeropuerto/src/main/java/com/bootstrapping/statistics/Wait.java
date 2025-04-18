@@ -1,9 +1,9 @@
 package com.bootstrapping.statistics;
 
 public class Wait {
-    private static double totalWait;
-    private static double minWait;
-    private static double maxWait;   
+    private static double totalWait = 0;
+    private static double minWait = 100000000;
+    private static double maxWait = 0;   
     private double temporalWait;
 
     public Wait( ) {
@@ -12,26 +12,24 @@ public class Wait {
 
     public void aculuteWait(double wait){
         this.temporalWait = wait;
-        totalWait += this.temporalWait;
+        Wait.totalWait += this.temporalWait;
         // Calculo el Wait maximo
-        if(this.temporalWait > maxWait){
-            maxWait = this.temporalWait; 
+        if(this.temporalWait > Wait.maxWait){
+            Wait.maxWait = this.temporalWait; 
         }
-        else if(this.temporalWait != 0 && this.temporalWait < minWait){
-            minWait = this.temporalWait;
+        if(this.temporalWait != 0 && this.temporalWait < Wait.minWait){
+            Wait.minWait = this.temporalWait;
         }
     }
     
     public static double getTotalWait() {
-        return totalWait;
+        return Wait.totalWait;
     }
     public static double getMinWait() {
-        return minWait;
+        return Wait.minWait;
     }
     public static double getMaxWait() {
-        return maxWait;
+        return Wait.maxWait;
     }
-    public double getTemporalWait() {
-        return temporalWait;
-    }
+
 }
