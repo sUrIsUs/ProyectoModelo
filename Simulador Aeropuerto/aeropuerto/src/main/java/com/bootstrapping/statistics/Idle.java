@@ -2,9 +2,9 @@ package com.bootstrapping.statistics;
 
 public class Idle {
    
-    private static double totalIdle;
-    private static double minIdle;
-    private static double maxIdle;
+    private static double totalIdle = 0; 
+    private static double minIdle = 100000000;
+    private static double maxIdle = 0;
     private double temporalIdle;
     
     public Idle() {
@@ -12,28 +12,25 @@ public class Idle {
     }
 
     public void acumulateIdle(double idle){
-        this.temporalIdle = idle;
-        totalIdle += this.temporalIdle;
-        // Calculo el Idleo maximo
+        this.temporalIdle = (idle > 0)? idle : 0;
+        Idle.totalIdle += this.temporalIdle;
+        // Calculo el ocio maximo
         if(this.temporalIdle > maxIdle){
-            maxIdle = this.temporalIdle; 
+            Idle.maxIdle = this.temporalIdle; 
         }
-        else if(this.temporalIdle != 0 && this.temporalIdle < minIdle){
-            minIdle = this.temporalIdle;
+        if(this.temporalIdle != 0 && this.temporalIdle < minIdle){
+            Idle.minIdle = this.temporalIdle;
         }
     }
     
     public static double getTotalIdle() {
-        return totalIdle;
+        return Idle.totalIdle;
     }
     public static double getMinIdle() {
-        return minIdle;
+        return Idle.minIdle;
     }
     public static double getMaxIdle() {
-        return maxIdle;
-    }
-    public double getTemporalIdle() {
-        return temporalIdle;
+        return Idle.maxIdle;
     }
     
 }

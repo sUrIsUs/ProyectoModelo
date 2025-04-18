@@ -6,7 +6,7 @@ import com.bootstrapping.events.Event;
 
 public class EntityHistory {
     private List<Event> entityHistory; //0 arrival 1 departure 
-    private double arrivalClock;
+    private double serviceArrivalClock;
 
     
     public EntityHistory(){
@@ -14,19 +14,27 @@ public class EntityHistory {
     }
     
     public Event getArrival() {
-        return entityHistory.get(0);
+        return entityHistory.getFirst();
     }
     
     public Event getDeparture() {
-        return entityHistory.get(1);
+        return entityHistory.getLast();
     }
 
-    public double getArrivalClock() {
-        return arrivalClock;
+    public double getServiceArrivalClock() {
+        return serviceArrivalClock;
     }
     
-    public void setArrivalClock(double arrivalClock) {
-        this.arrivalClock = arrivalClock;
+    public void setServiceArrivalClock(double arrivalClock) {
+        this.serviceArrivalClock = arrivalClock;
+    }
+
+    public void addArrival(Event arrival){
+        this.entityHistory.add(arrival);
+    }
+
+    public void addDeparture(Event departure){
+        this.entityHistory.addLast(departure);
     }
 
 }

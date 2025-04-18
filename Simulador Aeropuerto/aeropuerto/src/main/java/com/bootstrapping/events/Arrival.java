@@ -25,19 +25,21 @@ public class Arrival extends Event {
     public Server planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer) {
         Server server = servers.getServer();
         this.entity.setServerId(server.getId());
+        arrival.getEntity().getEntityHistory().addArrival(arrival);
         // Si el server esta ocupado, agrego el arribo a la cola
         if(server.isBusy()){
             server.getQueue().add(arrival);
         }
         // Si no esta ocupado, genero su salida
         else{
-            arrival.getEntity().getEntityHistory().setArrivalClock(this.clock);
+            arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             server.setEntity(arrival.getEntity());
-            fel.addEvent(new Departure(0, serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
+            fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
             server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+
         // Retorna el servidor utilizado
         return server;
     }

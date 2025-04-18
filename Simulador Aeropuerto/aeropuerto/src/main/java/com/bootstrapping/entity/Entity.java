@@ -11,6 +11,7 @@ public abstract class Entity {
     public Entity(CodeGenerator codeGenerator) {
         this.code = codeGenerator.nextCode();
         this.serverId = 0;
+        this.entityHistory = new EntityHistory();
     }
     
     public int getCode() {

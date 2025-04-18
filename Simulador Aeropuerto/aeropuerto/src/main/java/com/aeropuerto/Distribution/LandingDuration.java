@@ -1,5 +1,4 @@
-package com.aeropuerto.Distribution;
-
+package com.aeropuerto.distribution;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
 

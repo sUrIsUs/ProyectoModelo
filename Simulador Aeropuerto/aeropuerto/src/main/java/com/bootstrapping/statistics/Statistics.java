@@ -2,6 +2,7 @@ package com.bootstrapping.statistics;
 
 import com.bootstrapping.entity.EntityHistory;
 import com.bootstrapping.server.Server;
+import com.bootstrapping.server.Servers;
 
 public abstract class Statistics {
 
@@ -49,7 +50,6 @@ public abstract class Statistics {
     }
     
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
-
-    public abstract void computeGeneralStatistics();
+    public abstract void computeGeneralStatistics(Servers servers);
 
 }

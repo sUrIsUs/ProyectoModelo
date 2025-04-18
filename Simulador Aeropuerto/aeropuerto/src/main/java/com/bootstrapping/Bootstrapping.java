@@ -39,13 +39,18 @@ public class Bootstrapping{
             server = inminent.planificate(fel, servers, inminent, randomizer);
             if(inminent instanceof Departure){
                 server.getStatistics().computeStatistics(inminent.getEntity().getEntityHistory(), server);
+                System.out.println("Salida\n");
+            }
+            else{
+                System.out.println("Arribo\n");
             }
             //Actualizo clock de la simulación
             this.clock = inminent.getClock();
+            System.out.println(this.clock);
         }
 
         //Muestro estadisticas
-        statistics.computeGeneralStatistics();
+        statistics.computeGeneralStatistics(this.servers);
     }
 
 }

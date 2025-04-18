@@ -17,25 +17,21 @@ public class Transit {
         if(this.temporalTransit > maxTransit){
             maxTransit = this.temporalTransit; 
         }
-        else if(this.temporalTransit != 0 && this.temporalTransit < minTransit){
+        if(this.temporalTransit != 0 && this.temporalTransit < minTransit){
             minTransit = this.temporalTransit;
         }
     }
 
     public static double getTotalTransit() {
-        return totalTransit;
+        return Transit.totalTransit;
     }
 
     public static double getMinTransit() {
-        return minTransit;
+        return Transit.minTransit;
     }
 
     public static double getMaxTransit() {
-        return maxTransit;
-    }
-
-    public double getTemporalTransit() {
-        return temporalTransit;
+        return Transit.maxTransit;
     }
     
 }
