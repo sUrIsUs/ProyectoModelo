@@ -6,6 +6,7 @@ import com.bootstrapping.Randomizer;
 
 public class StaticRandomizer implements Randomizer {
     private Random random;
+    
 
     public StaticRandomizer(){
         this.random = new Random(4);
@@ -13,6 +14,8 @@ public class StaticRandomizer implements Randomizer {
 
     @Override
     public double next() {
-        return this.random.nextDouble();
+        double rand = this.random.nextDouble();
+        System.out.println(rand);
+        return rand;
     }
 }

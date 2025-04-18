@@ -4,6 +4,11 @@ import com.bootstrapping.entity.EntityHistory;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 
+/**
+ * Esta clase almacena estadísticas de ocio y tránsito para cada servidor, y de la espera de las entidades
+ * Realizará cálculos utilizando los métodos para las clases Idle, Transit y Wait
+ * Deberá implementar los métodos (1) computeStatistics(), que realiza los cálculos de cada estadística que desee almacenarse de cada servidor y entidad (ej. ocio, espera, tránsito), y (2) computeGeneralStatistics, que realiza los cálculos y/o muestra las estadísticas de la simulación que al usuario le interese (ej. tiempos máximos, medios, mínimos)
+ */
 public abstract class Statistics {
 
     // Variables para indicar la cantidad de instancias de los eventos de arribo y salidas

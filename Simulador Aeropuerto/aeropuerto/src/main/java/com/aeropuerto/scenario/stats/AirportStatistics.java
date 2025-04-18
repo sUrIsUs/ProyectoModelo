@@ -9,6 +9,10 @@ import com.bootstrapping.statistics.Statistics;
 import com.bootstrapping.statistics.Transit;
 import com.bootstrapping.statistics.Wait;
 
+/**
+ * @author Paez Juan Cruz
+ * @author Facundo Nicolas Farias Lozano
+ */
 public class AirportStatistics extends Statistics{
 
     public AirportStatistics(){

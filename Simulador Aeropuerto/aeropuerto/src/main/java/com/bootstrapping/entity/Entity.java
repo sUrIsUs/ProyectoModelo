@@ -2,6 +2,9 @@ package com.bootstrapping.entity;
 
 import com.bootstrapping.CodeGenerator;
 
+/**
+ * Clase de la cual debera extenderse para especificar el tipo de entidad/es particular de cada simulación
+ */
 public abstract class Entity {
 
     private int code;

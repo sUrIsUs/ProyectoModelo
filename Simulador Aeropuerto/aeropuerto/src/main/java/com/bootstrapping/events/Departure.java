@@ -27,12 +27,12 @@ public class Departure extends Event {
         }
         else{
             Arrival arrival = (Arrival)server.getQueue().pop();
+            server.setEntity(arrival.getEntity());
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
             server.getStatistics().incrementArrivalInstances();
         }
-        // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(),this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        
         departure.getEntity().getEntityHistory().addDeparture(departure);
         server.getStatistics().incrementDepartureInstances();
 

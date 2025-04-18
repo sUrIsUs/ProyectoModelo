@@ -1,8 +1,12 @@
-package com.aeropuerto.distribution;
+package com.aeropuerto.scenario.distribution;
 
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 
+/**
+ * @author Paez Juan Cruz
+ * @author Facundo Nicolas Farias Lozano
+ */
 public class TimeBetweenLanding extends TimeBetweenArrival {
 
     public TimeBetweenLanding(){}

@@ -3,6 +3,10 @@ package com.aeropuerto.scenario;
 import com.bootstrapping.comparators.ServerPrioritizer;
 import com.bootstrapping.server.Server;
 
+/**
+ * @author Paez Juan Cruz
+ * @author Facundo Nicolas Farias Lozano
+ */
 public class RunwayPrioritizer extends ServerPrioritizer{
 
     public RunwayPrioritizer(){}

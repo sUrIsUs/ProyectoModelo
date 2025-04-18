@@ -1,5 +1,4 @@
 package com.bootstrapping;
-import java.util.Comparator;
 
 import com.bootstrapping.events.Arrival;
 import com.bootstrapping.events.Departure;
@@ -13,6 +12,12 @@ import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.Statistics;
 
+/**
+ * 
+ * @author Paez Juan Cruz
+ * @author Facundo Nicolas Farias Lozano
+ */
+
 public class Bootstrapping{
 
     private FEL fel;
@@ -24,6 +29,17 @@ public class Bootstrapping{
         this.clock = 0;
     }
 
+
+    /**
+     * <p> Método para comenzar una simulación estocástica orientada a eventos discretos </p>
+     * @param simulationLenght double que indica la duaración de la simulación
+     * @param randomizer instancia de Randomizer. Es un generador de números random que se utilizara para generar distribuciones
+     * @param serversCantity entero que indica la cantidad de servidores, los cuales tendrán cada uno su propia fila de eventos
+     * @param statistics instancia de Statistics
+     * @param serverPrioritizer intancia de ServerPrioriter
+     * @param serviceDuration instancia de ServiceDuration
+     * @param timeBetweenArrival instancia de TimeBetweenArrival
+     */
     public void startSimulation(double simulationLenght, Randomizer randomizer, int serversCantity, Statistics statistics, ServerPrioritizer serverPrioritizer, ServiceDuration serviceDuration, TimeBetweenArrival timeBetweenArrival ){
         // Inicializar fel
         this.servers = new Servers(serverPrioritizer);
@@ -39,14 +55,10 @@ public class Bootstrapping{
             server = inminent.planificate(fel, servers, inminent, randomizer);
             if(inminent instanceof Departure){
                 server.getStatistics().computeStatistics(inminent.getEntity().getEntityHistory(), server);
-                System.out.println("Salida\n");
             }
-            else{
-                System.out.println("Arribo\n");
-            }
+
             //Actualizo clock de la simulación
             this.clock = inminent.getClock();
-            System.out.println(this.clock);
         }
 
         //Muestro estadisticas

@@ -21,6 +21,6 @@ public class FEL {
     }
 
     public Event inminent(){
-        return fel.removeFirst();
+        return fel.remove(0);
     }
 } 

@@ -1,7 +1,11 @@
-package com.aeropuerto.distribution;
+package com.aeropuerto.scenario.distribution;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
 
+/**
+ * @author Paez Juan Cruz
+ * @author Facundo Nicolas Farias Lozano
+ */
 public class LandingDuration extends ServiceDuration {
 
     public LandingDuration(){}
