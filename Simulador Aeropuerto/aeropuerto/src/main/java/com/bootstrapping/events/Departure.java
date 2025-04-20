@@ -1,5 +1,4 @@
 package com.bootstrapping.events;
-import com.aeropuerto.scenario.Aircraft;
 import com.bootstrapping.FEL;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;

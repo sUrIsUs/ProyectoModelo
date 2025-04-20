@@ -38,7 +38,7 @@ public class Arrival extends Event {
             server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival)); // Evaluar si conviene hacer lo correcto, y pasar new Entity() en vez de new Aircraft()
+        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival));
 
         // Retorna el servidor utilizado
         return server;

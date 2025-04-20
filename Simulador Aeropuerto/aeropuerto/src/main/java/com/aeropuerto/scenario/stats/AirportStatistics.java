@@ -38,18 +38,18 @@ public class AirportStatistics extends Statistics{
         System.out.println("Tiempos de transito");
         System.out.println("\tMedio: "+ (Transit.getTotalTransit() / this.getDepartureInstances()));
         System.out.println("\tMax: " + Transit.getMaxTransit());
-        System.out.println("\tMin: " + Transit.getMinTransit());
+        System.out.println("\tMin: " + ((Transit.getMinTransit() == 100000000) ? "": Transit.getMinTransit()));
         System.out.println("Tiempos de espera");
         System.out.println("\tMedio: "+ (Wait.getTotalWait() / this.getDepartureInstances()));
         System.out.println("\tMax: " + Wait.getMaxWait());
-        System.out.println("\tMin: " + Wait.getMinWait());
+        System.out.println("\tMin: " + ((Wait.getMinWait() == 100000000) ? "": Wait.getMinWait()));
         System.out.println("Tiempos de ocio");
         System.out.println("\tMedio: "+ (Idle.getTotalIdle() / this.getDepartureInstances()));
         System.out.println("\tMax: " + Idle.getMaxIdle());
-        System.out.println("\tMin: " + Idle.getMinIdle());
+        System.out.println("\tMin: " + ((Idle.getMinIdle() == 100000000) ? "": Idle.getMinIdle()));
         System.out.println("Tamaños de cola");
         System.out.println("\tMax cola: " + servers.getServerId(1).getQueue().getMaxSize());
-        System.out.println("\tMin cola: " + servers.getServerId(1).getQueue().getMinSize());
+        System.out.println("\tMin cola: " + ((servers.getServerId(1).getQueue().getMinSize() == 100000000) ? "": servers.getServerId(1).getQueue().getMinSize()));
     }
     
 

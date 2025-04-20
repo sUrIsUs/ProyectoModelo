@@ -23,4 +23,15 @@ public class FEL {
     public Event inminent(){
         return fel.remove(0);
     }
+
+    @Override
+    public String toString() {
+        String output = "================ FEL ================\n";
+
+        for (Event event : this.fel) {
+            output += "[" + event.getClock() + "," + event.getType() + "]\n";
+        }
+
+        return output+= "*****************************";
+    }
 } 
