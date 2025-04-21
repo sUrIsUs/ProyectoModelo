@@ -29,7 +29,6 @@ public class Departure extends Event {
             server.setEntity(arrival.getEntity());
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
-            server.getStatistics().incrementArrivalInstances();
         }
         
         departure.getEntity().getEntityHistory().addDeparture(departure);

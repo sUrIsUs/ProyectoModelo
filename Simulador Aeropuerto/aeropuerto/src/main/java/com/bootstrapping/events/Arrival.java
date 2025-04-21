@@ -26,6 +26,8 @@ public class Arrival extends Event {
         Server server = servers.getServer();
         this.entity.setServerId(server.getId());
         arrival.getEntity().getEntityHistory().addArrival(arrival);
+        // Cuando un avión spawnea en la simu, incremento la cantidad de arribos en uno
+        server.getStatistics().incrementArrivalInstances();
         // Si el server esta ocupado, agrego el arribo a la cola
         if(server.isBusy()){
             server.getQueue().add(arrival);
@@ -35,7 +37,6 @@ public class Arrival extends Event {
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             server.setEntity(arrival.getEntity());
             fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
-            server.getStatistics().incrementArrivalInstances();
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival));
