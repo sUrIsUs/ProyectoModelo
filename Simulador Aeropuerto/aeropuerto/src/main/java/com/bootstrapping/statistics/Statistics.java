@@ -2,7 +2,6 @@ package com.bootstrapping.statistics;
 
 import com.bootstrapping.entity.EntityHistory;
 import com.bootstrapping.server.Server;
-import com.bootstrapping.server.Servers;
 
 /**
  * Esta clase almacena estadísticas de ocio y tránsito para cada servidor, y de la espera de las entidades
@@ -55,6 +54,7 @@ public abstract class Statistics {
     }
     
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
-    public abstract void computeGeneralStatistics(Servers servers);
+    public abstract void processGeneralStatistics(Server server);
+    public abstract void processEventInstances();
 
 }

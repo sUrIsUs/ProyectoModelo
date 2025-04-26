@@ -4,14 +4,15 @@ import com.bootstrapping.events.Arrival;
 import com.bootstrapping.events.Departure;
 import com.bootstrapping.events.Event;
 import com.bootstrapping.exceptions.NegativeNumberException;
-import com.aeropuerto.scenario.Aircraft;
+import com.aeropuerto.scenario.airportEntity.Aircraft;
 import com.bootstrapping.comparators.EventPrioritizer;
 import com.bootstrapping.comparators.ServerPrioritizer;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
+import com.bootstrapping.entity.EntityFactory;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
-import com.bootstrapping.statistics.Statistics;
+import com.bootstrapping.statistics.StatisticsFactory;
 
 /**
  * 
@@ -41,12 +42,12 @@ public class Bootstrapping{
      * @param serviceDuration instancia de ServiceDuration
      * @param timeBetweenArrival instancia de TimeBetweenArrival
      */
-    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity, Statistics statistics, ServerPrioritizer serverPrioritizer, ServiceDuration serviceDuration, TimeBetweenArrival timeBetweenArrival ){
+    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity, StatisticsFactory statisticsFactory, ServerPrioritizer serverPrioritizer, ServiceDuration serviceDuration, TimeBetweenArrival timeBetweenArrival, EntityFactory entityFactory){
         try{
             // Validaciones de parámetros
             if (randomizer == null)
             throw new IllegalArgumentException("El generador de números aleatorios (Randomizer) no puede ser nulo.");
-            if (statistics == null)
+            if (statisticsFactory == null)
                 throw new IllegalArgumentException("La instancia de estadísticas no puede ser nula.");
             if (serverPrioritizer == null)
                 throw new IllegalArgumentException("El priorizador de servidores no puede ser nulo.");
@@ -59,9 +60,9 @@ public class Bootstrapping{
             if (serversQuantity <= 0)
                 throw new NegativeNumberException("La cantidad de servidores debe ser mayor que cero.");
 
-            // Inicializar fel
+            // Inicializar servers
             this.servers = new Servers(serverPrioritizer);
-            servers.addServers(serversQuantity, statistics);;
+            servers.addServers(serversQuantity, statisticsFactory);;
             Server server;
 
             //añado primer evento
@@ -70,7 +71,7 @@ public class Bootstrapping{
             // Empiezo simulacion
             while(simulationLength >= this.clock){
                 Event inminent = fel.inminent();
-                server = inminent.planificate(fel, servers, inminent, randomizer);
+                server = inminent.planificate(fel, servers, inminent, randomizer, entityFactory);
                 if(inminent instanceof Departure){
                     server.getStatistics().computeStatistics(inminent.getEntity().getEntityHistory(), server);
                 }
@@ -80,7 +81,7 @@ public class Bootstrapping{
             }
 
             //Muestro estadisticas
-            statistics.computeGeneralStatistics(this.servers);
+            servers.computeServerStatistics();
         
         } catch (NegativeNumberException | IllegalArgumentException e) {
             System.out.println("Error al iniciar la simulación: " + e.getMessage());

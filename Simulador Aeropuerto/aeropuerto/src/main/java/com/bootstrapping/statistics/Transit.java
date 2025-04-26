@@ -1,9 +1,9 @@
 package com.bootstrapping.statistics;
 
 public class Transit {
-    private static double totalTransit = 0;
-    private static double minTransit = 100000000;
-    private static double maxTransit = 0;
+    private double totalTransit = 0;
+    private double minTransit = 100000000;
+    private double maxTransit = 0;
     private double temporalTransit;
     
     public Transit() {
@@ -22,16 +22,16 @@ public class Transit {
         }
     }
 
-    public static double getTotalTransit() {
-        return Transit.totalTransit;
+    public double getTotalTransit() {
+        return this.totalTransit;
     }
 
-    public static double getMinTransit() {
-        return Transit.minTransit;
+    public double getMinTransit() {
+        return this.minTransit;
     }
 
-    public static double getMaxTransit() {
-        return Transit.maxTransit;
+    public double getMaxTransit() {
+        return this.maxTransit;
     }
     
 }

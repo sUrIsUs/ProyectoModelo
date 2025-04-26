@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bootstrapping.comparators.ServerPrioritizer;
-import com.bootstrapping.statistics.Statistics;
+import com.bootstrapping.statistics.StatisticsFactory;
 
 public class Servers {
     private List<Server> servers;
@@ -30,10 +30,21 @@ public class Servers {
         return servers.get(i);
     }
 
-    public void addServers(int serversCantity, Statistics statistics){
+    public void addServers(int serversCantity, StatisticsFactory statisticsFactory){
         for(int i = 0; i < serversCantity; i++){
-            this.servers.add(new Server(serverCodeGenerator, statistics));
+            this.servers.add(new Server(serverCodeGenerator, statisticsFactory.create()));
+           
         }
+    }
+
+    public void computeServerStatistics(){
+        System.out.println("===================================================");
+        for(Server server : this.servers){
+            System.out.println("Server id: " + server.getId());
+            server.getStatistics().processGeneralStatistics(server);
+            System.out.println("===================================================");
+        }
+        this.getServerId(1).getStatistics().processEventInstances();
     }
 
 }

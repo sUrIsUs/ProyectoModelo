@@ -8,5 +8,4 @@ import com.bootstrapping.Randomizer;
  */
 public interface Distribution {
     public double generateTime(Randomizer randomizer);
-
 }

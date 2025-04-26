@@ -9,7 +9,7 @@ public class Server {
     private int id;
     
     private final Queue queue;
-    private static Statistics statistics;
+    private Statistics statistics;
     private double lastDeparture;
     
     
@@ -19,6 +19,10 @@ public class Server {
         this.queue = new Queue();
         this.statistics = statistics;
         this.lastDeparture = 0;
+    }
+
+    public void setStatistics(Statistics statistics){
+        this.statistics = statistics;
     }
     
     public boolean isBusy(){

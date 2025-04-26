@@ -4,6 +4,7 @@ import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.entity.EntityFactory;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 
@@ -19,7 +20,7 @@ public class Departure extends Event {
     }
 
     @Override
-    public Server planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer) {
+    public Server planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer, EntityFactory entityFactory) {
         Server server = servers.getServerId(this.entity.getServerId());
         if(server.getQueue().size() == 0){  
              server.setEntity(null);

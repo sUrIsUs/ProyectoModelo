@@ -1,10 +1,10 @@
 package com.bootstrapping.events;
 
-import com.aeropuerto.scenario.Aircraft;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.entity.EntityFactory;
 import com.bootstrapping.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
@@ -22,7 +22,7 @@ public class Arrival extends Event {
 
 
     @Override
-    public Server planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer) {
+    public Server planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer, EntityFactory entityFactory) {
         Server server = servers.getServer();
         this.entity.setServerId(server.getId());
         arrival.getEntity().getEntityHistory().addArrival(arrival);
@@ -39,7 +39,7 @@ public class Arrival extends Event {
             fel.addEvent(new Departure(0, this.clock + serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration, this.timeBetweenArrival));
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), new Aircraft(), this.serviceDuration, this.timeBetweenArrival));
+        fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), entityFactory.create(), this.serviceDuration, this.timeBetweenArrival));
 
         // Retorna el servidor utilizado
         return server;

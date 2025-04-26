@@ -1,6 +1,7 @@
 package com.bootstrapping.events;
 import com.bootstrapping.Randomizer;
 import com.bootstrapping.entity.Entity;
+import com.bootstrapping.entity.EntityFactory;
 import com.bootstrapping.FEL;
 import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
@@ -16,7 +17,7 @@ public abstract class Event {
         this.entity = entity;
     }
 
-    public abstract Server planificate(FEL fel, Servers servers, Event event, Randomizer randomizer);
+    public abstract Server planificate(FEL fel, Servers servers, Event event, Randomizer randomizer, EntityFactory entityFactory);
 
     public int getType() {
         return type;

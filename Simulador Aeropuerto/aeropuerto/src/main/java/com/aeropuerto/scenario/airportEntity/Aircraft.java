@@ -1,4 +1,4 @@
-package com.aeropuerto.scenario;
+package com.aeropuerto.scenario.airportEntity;
 
 import com.aeropuerto.scenario.codeGenerator.AircraftCodeGenerator;
 import com.bootstrapping.entity.Entity;
