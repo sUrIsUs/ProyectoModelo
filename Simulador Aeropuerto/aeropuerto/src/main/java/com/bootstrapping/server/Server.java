@@ -9,7 +9,7 @@ public class Server {
     private int id;
     
     private final Queue queue;
-    private Statistics statistics;
+    private static Statistics statistics;
     private double lastDeparture;
     
     
