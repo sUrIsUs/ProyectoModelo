@@ -1,7 +1,6 @@
 package com.bootstrapping;
 
 import com.bootstrapping.events.Arrival;
-import com.bootstrapping.events.Departure;
 import com.bootstrapping.events.Event;
 import com.bootstrapping.exceptions.NegativeNumberException;
 import com.aeropuerto.scenario.airportEntity.Aircraft;
@@ -10,7 +9,6 @@ import com.bootstrapping.comparators.ServerPrioritizer;
 import com.bootstrapping.distribution.ServiceDuration;
 import com.bootstrapping.distribution.TimeBetweenArrival;
 import com.bootstrapping.entity.EntityFactory;
-import com.bootstrapping.server.Server;
 import com.bootstrapping.server.Servers;
 import com.bootstrapping.statistics.StatisticsFactory;
 
@@ -63,7 +61,6 @@ public class Bootstrapping{
             // Inicializar servers
             this.servers = new Servers(serverPrioritizer);
             servers.addServers(serversQuantity, statisticsFactory);;
-            Server server;
 
             //añado primer evento
             fel.addEvent(new Arrival(2,  0, new Aircraft(), serviceDuration, timeBetweenArrival));
@@ -71,13 +68,10 @@ public class Bootstrapping{
             // Empiezo simulacion
             while(simulationLength >= this.clock){
                 Event inminent = fel.inminent();
-                server = inminent.planificate(fel, servers, inminent, randomizer, entityFactory);
-                if(inminent instanceof Departure){
-                    server.getStatistics().computeStatistics(inminent.getEntity().getEntityHistory(), server);
-                }
+                inminent.planificate(fel, servers, inminent, randomizer, entityFactory);
 
                 //Actualizo clock de la simulación
-                this.clock = inminent.getClock();        
+                this.clock = inminent.getClock();
             }
 
             //Muestro estadisticas

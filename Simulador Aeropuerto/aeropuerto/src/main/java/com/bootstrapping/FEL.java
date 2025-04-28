@@ -16,8 +16,8 @@ public class FEL {
     }
 
     public void addEvent(Event event){
-        fel.add(event);
-        fel.sort(eventPrioritizer);
+        this.fel.add(event);
+        this.fel.sort(this.eventPrioritizer);
     }
 
     public Event inminent(){

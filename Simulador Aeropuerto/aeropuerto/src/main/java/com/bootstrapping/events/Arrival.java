@@ -22,7 +22,7 @@ public class Arrival extends Event {
 
 
     @Override
-    public Server planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer, EntityFactory entityFactory) {
+    public void planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer, EntityFactory entityFactory) {
         Server server = servers.getServer();
         this.entity.setServerId(server.getId());
         arrival.getEntity().getEntityHistory().addArrival(arrival);
@@ -40,9 +40,6 @@ public class Arrival extends Event {
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, this.clock + timeBetweenArrival.generateTime(randomizer), entityFactory.create(), this.serviceDuration, this.timeBetweenArrival));
-
-        // Retorna el servidor utilizado
-        return server;
     }
     
 }

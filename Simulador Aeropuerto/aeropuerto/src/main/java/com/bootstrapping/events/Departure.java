@@ -20,7 +20,7 @@ public class Departure extends Event {
     }
 
     @Override
-    public Server planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer, EntityFactory entityFactory) {
+    public void planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer, EntityFactory entityFactory) {
         Server server = servers.getServerId(this.entity.getServerId());
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
@@ -34,9 +34,8 @@ public class Departure extends Event {
         
         departure.getEntity().getEntityHistory().addDeparture(departure);
         server.getStatistics().incrementDepartureInstances();
-
+        server.getStatistics().computeStatistics(departure.getEntity().getEntityHistory(), server);
         // Retorno el servidor utilizado para mostrar las estadísticas
-        return server;
     }
     
 }
