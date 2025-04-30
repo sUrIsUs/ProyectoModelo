@@ -1,7 +1,7 @@
 package com.aeropuerto.scenario.airportEntity;
 
 import com.aeropuerto.scenario.codeGenerator.AircraftCodeGenerator;
-import com.bootstrapping.entity.Entity;
+import com.engine.entity.Entity;
 
 public class Aircraft extends Entity{
     

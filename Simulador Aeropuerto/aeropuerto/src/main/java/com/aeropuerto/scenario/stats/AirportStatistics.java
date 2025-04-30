@@ -1,9 +1,9 @@
 package com.aeropuerto.scenario.stats;
 
-import com.bootstrapping.entity.EntityHistory;
-import com.bootstrapping.events.Event;
-import com.bootstrapping.server.Server;
-import com.bootstrapping.statistics.Statistics;
+import com.engine.entity.EntityHistory;
+import com.engine.events.Event;
+import com.engine.server.Server;
+import com.engine.statistics.Statistics;
 
 /**
  * @author Paez Juan Cruz

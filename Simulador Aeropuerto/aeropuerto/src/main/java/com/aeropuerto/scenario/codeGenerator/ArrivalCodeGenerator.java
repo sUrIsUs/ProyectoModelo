@@ -1,6 +1,6 @@
 package com.aeropuerto.scenario.codeGenerator;
 
-import com.bootstrapping.CodeGenerator;
+import com.engine.CodeGenerator;
 
 public class ArrivalCodeGenerator implements CodeGenerator {
     private static int code = 0;

@@ -2,7 +2,7 @@ package com.aeropuerto.scenario.randomizers;
 
 import java.util.Random;
 
-import com.bootstrapping.Randomizer;
+import com.engine.Randomizer;
 
 /**
  * @author Paez Juan Cruz

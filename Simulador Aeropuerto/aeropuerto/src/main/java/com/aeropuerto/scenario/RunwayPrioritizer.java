@@ -1,7 +1,7 @@
 package com.aeropuerto.scenario;
 
-import com.bootstrapping.comparators.ServerPrioritizer;
-import com.bootstrapping.server.Server;
+import com.engine.comparators.ServerPrioritizer;
+import com.engine.server.Server;
 
 /**
  * @author Paez Juan Cruz

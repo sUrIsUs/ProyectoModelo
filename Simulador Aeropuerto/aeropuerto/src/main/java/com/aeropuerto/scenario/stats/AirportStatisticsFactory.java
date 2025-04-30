@@ -1,7 +1,7 @@
 package com.aeropuerto.scenario.stats;
 
-import com.bootstrapping.statistics.Statistics;
-import com.bootstrapping.statistics.StatisticsFactory;
+import com.engine.statistics.Statistics;
+import com.engine.statistics.StatisticsFactory;
 
 public class AirportStatisticsFactory implements StatisticsFactory{
 
