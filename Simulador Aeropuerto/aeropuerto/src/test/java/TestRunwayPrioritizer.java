@@ -4,8 +4,8 @@ import org.junit.Test;
 
 import com.aeropuerto.scenario.RunwayPrioritizer;
 import com.aeropuerto.scenario.airportEntity.Aircraft;
-import com.aeropuerto.scenario.distribution.StaticUniformLandingDuration;
-import com.aeropuerto.scenario.distribution.StaticUniformTimeBetweenLanding;
+import com.aeropuerto.scenario.distribution.StaticDiscreteEmpiricLandingDuration;
+import com.aeropuerto.scenario.distribution.StaticDiscreteEmpiricTimeBetweenArrival;
 import com.engine.events.Arrival;
 import com.engine.server.Server;
 import com.engine.server.ServerCodeGenerator;
@@ -43,7 +43,7 @@ public class TestRunwayPrioritizer {
         s1.setEntity(new Aircraft());
         Server s2 = new Server(serverCodeGenerator, null);
         s2.setEntity(new Aircraft());
-        s2.getQueue().add(new Arrival(2, 0, new Aircraft(),new StaticUniformLandingDuration(), new StaticUniformTimeBetweenLanding()));
+        s2.getQueue().add(new Arrival(2, 0, new Aircraft(),new StaticDiscreteEmpiricLandingDuration(), new StaticDiscreteEmpiricTimeBetweenArrival()));
         
         RunwayPrioritizer runwayPrioritizer = new RunwayPrioritizer();
         assertEquals(-1, runwayPrioritizer.compare(s1, s2));
@@ -55,7 +55,7 @@ public class TestRunwayPrioritizer {
         ServerCodeGenerator serverCodeGenerator = new ServerCodeGenerator();
         Server s1 = new Server(serverCodeGenerator, null);
         s1.setEntity(new Aircraft());
-        s1.getQueue().add(new Arrival(2, 0, new Aircraft(),new StaticUniformLandingDuration(), new StaticUniformTimeBetweenLanding()));
+        s1.getQueue().add(new Arrival(2, 0, new Aircraft(),new StaticDiscreteEmpiricLandingDuration(), new StaticDiscreteEmpiricTimeBetweenArrival()));
         Server s2 = new Server(serverCodeGenerator, null);
         s2.setEntity(new Aircraft());
         

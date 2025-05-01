@@ -1,14 +1,14 @@
 package com.aeropuerto.scenario.distribution;
 import com.engine.Randomizer;
-import com.engine.distribution.ServiceDuration;
+import com.engine.distribution.staticDistribution.StaticDiscreteEmpiricEventDuration;
 
 /**
  * @author Paez Juan Cruz
  * @author Facundo Nicolas Farias Lozano
  */
-public class StaticUniformLandingDuration extends ServiceDuration {
+public class StaticDiscreteEmpiricLandingDuration extends StaticDiscreteEmpiricEventDuration {
 
-    public StaticUniformLandingDuration(){}
+    public StaticDiscreteEmpiricLandingDuration(){}
     
     @Override
     public double generateTime(Randomizer randomizer) {

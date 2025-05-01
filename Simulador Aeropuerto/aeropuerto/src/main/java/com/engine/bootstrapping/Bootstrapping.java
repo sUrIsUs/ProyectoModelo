@@ -5,8 +5,7 @@ import com.engine.FEL;
 import com.engine.Randomizer;
 import com.engine.comparators.EventPrioritizer;
 import com.engine.comparators.ServerPrioritizer;
-import com.engine.distribution.ServiceDuration;
-import com.engine.distribution.TimeBetweenArrival;
+import com.engine.distribution.Distribution;
 import com.engine.entity.EntityFactory;
 import com.engine.events.Arrival;
 import com.engine.events.Event;
@@ -42,7 +41,7 @@ public class Bootstrapping{
      * @param serviceDuration instancia de ServiceDuration
      * @param timeBetweenArrival instancia de TimeBetweenArrival
      */
-    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity, StatisticsFactory statisticsFactory, ServerPrioritizer serverPrioritizer, ServiceDuration serviceDuration, TimeBetweenArrival timeBetweenArrival, EntityFactory entityFactory){
+    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity, StatisticsFactory statisticsFactory, ServerPrioritizer serverPrioritizer, Distribution serviceDuration, Distribution timeBetweenArrival, EntityFactory entityFactory){
         try{
             // Validaciones de parámetros
             if (randomizer == null)
