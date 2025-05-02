@@ -23,11 +23,10 @@ public class Bootstrapping{
 
     private FEL fel;
     private Servers servers;
-    private double clock;
+    private Clock clock;
 
     public Bootstrapping() {
         this.fel = new FEL(new EventPrioritizer());
-        this.clock = 0;
     }
 
 
@@ -67,14 +66,14 @@ public class Bootstrapping{
             fel.addEvent(new Arrival(2,  0, new Aircraft(), serviceDuration, timeBetweenArrival));
 
             // Empiezo simulacion
-            while(simulationLength >= this.clock){
+            while(simulationLength >= Clock.clock){
                 Event inminent = fel.inminent();
-                inminent.planificate(fel, servers, inminent, randomizer, entityFactory);
 
                 //Actualizo clock de la simulación
-                this.clock = inminent.getClock();
+                this.clock.setClock(inminent.getClock());
+                
+                inminent.planificate(fel, servers, inminent, randomizer, entityFactory);
             }
-
             //Muestro estadisticas
             servers.computeServerStatistics();
         
