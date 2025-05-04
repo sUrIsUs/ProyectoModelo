@@ -9,7 +9,7 @@ public class Clock {
         Clock.clock = clock;
     }
 
-    public double GetClock(){
+    public double getClock(){
         return Clock.clock;
     }
 }

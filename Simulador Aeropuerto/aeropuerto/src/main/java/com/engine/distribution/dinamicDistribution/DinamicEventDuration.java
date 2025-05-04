@@ -7,4 +7,7 @@ public abstract class DinamicEventDuration implements Distribution {
     
     protected Clock clock;
 
+    public DinamicEventDuration(){
+        this.clock = new Clock();
+    }
 }

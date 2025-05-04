@@ -13,7 +13,7 @@ public class StaticExponentialEventDuration implements Distribution {
     }
 
     @Override
-    public double generateTime(Randomizer randomizer) {
+    public double generateValue(Randomizer randomizer) {
         return (-1 / λ) * (Math.log(1 - randomizer.next()));
     }
     

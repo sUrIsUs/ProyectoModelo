@@ -15,6 +15,7 @@ public class DinamicExponentialEventDuration extends DinamicEventDuration {
 
     public DinamicExponentialEventDuration(double []intervals, double []peaksλ, double notPeakλ) throws ArraysNull,NegativeNumberException, OverlappingException{
 
+        super();
         this.intervals = intervals;
         this.peaksλ = peaksλ;
         this.notPeakλ = notPeakλ;     
@@ -35,14 +36,14 @@ public class DinamicExponentialEventDuration extends DinamicEventDuration {
     }
 
     @Override
-    public double generateTime(Randomizer randomizer) {
+    public double generateValue(Randomizer randomizer) {
         double λ = notPeakλ;
         for(int i = 0; i < (this.intervals.length / 2); i++){
-            if((this.intervals[i*2] < (this.clock.GetClock() % 1440)) && ((this.clock.GetClock() % 1440) < this.intervals[(i*2)+1]) ){
+            if((this.intervals[i*2] < (this.clock.getClock() % 1440)) && ((this.clock.getClock() % 1440) < this.intervals[(i*2)+1]) ){
                 λ = this.peaksλ[i];
             }
         }
-        return ( (-1/λ) * (Math.log(1 - randomizer.next())) );
+        return ( (-λ) * (Math.log(1 - randomizer.next())) );
     }
 
     private void intervalsDivider(double [] intervals, double [] peaksλ){

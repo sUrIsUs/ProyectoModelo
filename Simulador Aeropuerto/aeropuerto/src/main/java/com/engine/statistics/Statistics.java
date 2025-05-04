@@ -11,8 +11,8 @@ import com.engine.server.Server;
 public abstract class Statistics {
 
     // Variables para indicar la cantidad de instancias de los eventos de arribo y salidas
-    private static int arrivalInstances = 0;
-    private static int departureInstances = 0;
+    private int arrivalInstances = 0;
+    private int departureInstances = 0;
     
     private Idle idle;
     private Transit transit;
@@ -55,6 +55,5 @@ public abstract class Statistics {
     
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
     public abstract void processGeneralStatistics(Server server);
-    public abstract void processEventInstances();
 
 }

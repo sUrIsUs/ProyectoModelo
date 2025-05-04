@@ -14,7 +14,7 @@ public class StaticUniformEventDuration implements Distribution {
     }
     
     @Override
-    public double generateTime(Randomizer randomizer) {
+    public double generateValue(Randomizer randomizer) {
         return this.a + (this.b - this.a) * randomizer.next();
     }
     

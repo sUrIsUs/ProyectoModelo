@@ -7,5 +7,5 @@ import com.engine.Randomizer;
  * Ej. Tiempo entre arribo, duración de servicio.
  */
 public interface Distribution {
-    public double generateTime(Randomizer randomizer);
+    public double generateValue(Randomizer randomizer);
 }

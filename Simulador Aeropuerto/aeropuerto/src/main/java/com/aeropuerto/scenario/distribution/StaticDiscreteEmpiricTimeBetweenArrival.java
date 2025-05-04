@@ -12,7 +12,7 @@ public class StaticDiscreteEmpiricTimeBetweenArrival extends StaticDiscreteEmpir
     public StaticDiscreteEmpiricTimeBetweenArrival(){}
 
     @Override
-    public double generateTime(Randomizer randomizer) {
+    public double generateValue(Randomizer randomizer) {
         double random = randomizer.next();
         // Si random esta en el intervalo (0;0.35]
         if (random <= 0.38) {

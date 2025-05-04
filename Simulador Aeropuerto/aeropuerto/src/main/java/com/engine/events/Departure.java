@@ -26,12 +26,13 @@ public class Departure extends Event {
             Arrival arrival = (Arrival)server.getQueue().pop();
             server.setEntity(arrival.getEntity());
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
-            fel.addEvent(new Departure(0, this.clock + this.serviceDuration.generateTime(randomizer), arrival.getEntity(), this.serviceDuration));
+            fel.addEvent(new Departure(0, this.clock + this.serviceDuration.generateValue(randomizer), arrival.getEntity(), this.serviceDuration));
         }
         
         departure.getEntity().getEntityHistory().addDeparture(departure);
         server.getStatistics().incrementDepartureInstances();
         server.getStatistics().computeStatistics(departure.getEntity().getEntityHistory(), server);
+        server.determineDurability(randomizer);
         // Retorno el servidor utilizado para mostrar las estadísticas
     }
     

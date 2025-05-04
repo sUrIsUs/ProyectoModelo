@@ -44,11 +44,6 @@ public class AirportStatistics extends Statistics{
         System.out.println("\tMax cola: " + server.getQueue().getMaxSize());
         System.out.println("\tMin cola: " + ((server.getQueue().getMinSize() == 100000000) ? "": server.getQueue().getMinSize()));
     }
-    
-    @Override
-    public void processEventInstances(){
-        System.out.println("Cantidad de aeronaves que han arribado: " + this.getArrivalInstances());
-        System.out.println("Cantidad de aeronaves que han aterrizado: " + this.getDepartureInstances());
-    }
+   
 
 }

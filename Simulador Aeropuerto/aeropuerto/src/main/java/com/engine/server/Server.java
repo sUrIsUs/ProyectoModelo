@@ -1,5 +1,7 @@
 package com.engine.server;
 
+import com.engine.Randomizer;
+import com.engine.distribution.Distribution;
 import com.engine.entity.Entity;
 import com.engine.statistics.Statistics;
 
@@ -11,14 +13,17 @@ public class Server {
     private final Queue queue;
     private Statistics statistics;
     private double lastDeparture;
+    private Distribution distribution;
+    private double durability;
     
-    
-    public Server(ServerCodeGenerator serverCodeGenerator, Statistics statistics) {
+    public Server(ServerCodeGenerator serverCodeGenerator, Statistics statistics, Distribution distribution, double durability) {
         this.entity = null;
         this.id = serverCodeGenerator.nextCode();
         this.queue = new Queue();
         this.statistics = statistics;
         this.lastDeparture = 0;
+        this.distribution = distribution;
+        this.durability = durability;
     }
 
     public void setStatistics(Statistics statistics){
@@ -55,5 +60,15 @@ public class Server {
 
     public int getId(){
         return this.id;
+    }
+
+    public void determineDurability(Randomizer randomizer){
+        double randomizerValue = this.distribution.generateValue(randomizer);
+        System.out.println("Randomizer value: " + randomizerValue);
+        this.durability -= randomizerValue;
+    }
+
+    public double getDurability(){
+        return this.durability;
     }
 }

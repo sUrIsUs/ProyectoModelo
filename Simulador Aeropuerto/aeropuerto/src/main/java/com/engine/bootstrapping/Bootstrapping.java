@@ -27,6 +27,7 @@ public class Bootstrapping{
 
     public Bootstrapping() {
         this.fel = new FEL(new EventPrioritizer());
+        this.clock = new Clock();
     }
 
 
@@ -40,7 +41,7 @@ public class Bootstrapping{
      * @param serviceDuration instancia de ServiceDuration
      * @param timeBetweenArrival instancia de TimeBetweenArrival
      */
-    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity, StatisticsFactory statisticsFactory, ServerPrioritizer serverPrioritizer, Distribution serviceDuration, Distribution timeBetweenArrival, EntityFactory entityFactory){
+    public void startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity,double durability, Distribution serverDurability , ServerPrioritizer serverPrioritizer,  Distribution serviceDuration, Distribution timeBetweenArrival, EntityFactory entityFactory, StatisticsFactory statisticsFactory){
         try{
             // Validaciones de parámetros
             if (randomizer == null)
@@ -60,7 +61,7 @@ public class Bootstrapping{
 
             // Inicializar servers
             this.servers = new Servers(serverPrioritizer);
-            servers.addServers(serversQuantity, statisticsFactory);;
+            servers.addServers(serversQuantity, statisticsFactory, serverDurability, durability);;
 
             //añado primer evento
             fel.addEvent(new Arrival(2,  0, new Aircraft(), serviceDuration, timeBetweenArrival));
