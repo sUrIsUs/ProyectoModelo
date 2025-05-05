@@ -64,7 +64,6 @@ public class Server {
 
     public void determineDurability(Randomizer randomizer){
         double randomizerValue = this.distribution.generateValue(randomizer);
-        System.out.println("Randomizer value: " + randomizerValue);
         this.durability -= randomizerValue;
     }
 

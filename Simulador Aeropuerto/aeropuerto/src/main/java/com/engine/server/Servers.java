@@ -41,6 +41,7 @@ public class Servers {
 
     public void computeServerStatistics(){
         int arrivals = 0, departure = 0;
+        double waitMidle = 0;
         System.out.println("===================================================");
         this.servers.sort(Comparator.comparing(Server::getId));
         for(Server server : this.servers){
@@ -48,12 +49,15 @@ public class Servers {
             server.getStatistics().processGeneralStatistics(server);
             arrivals += server.getStatistics().getArrivalInstances();
             departure += server.getStatistics().getDepartureInstances();
-            System.out.println("Durabilidad de la pista: " + server.getDurability());
-            
+            System.out.println("Durabilidad final: " + server.getDurability());
+            System.out.println("Arrival instances: " + server.getStatistics().getArrivalInstances());
+            System.out.println("Departures instances: " + server.getStatistics().getDepartureInstances());
             System.out.println("===================================================");
+            // waitMidle += server.getStatistics().getWait().getMinWait;
         }
-        System.out.println("Cantidad de aeronaves que han arribado: " + arrivals);
-        System.out.println("Cantidad de aeronaves que han aterrizado: " + departure);
+        // System.out.println("Espera total media: " + );
+        System.out.println("Cantidad de entidades que han arribado: " + arrivals);
+        System.out.println("Cantidad de entidades que han sido atendidas: " + departure);
     }
 
 }

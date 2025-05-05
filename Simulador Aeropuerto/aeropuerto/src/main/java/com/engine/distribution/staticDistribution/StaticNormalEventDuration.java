@@ -30,7 +30,6 @@ public class StaticNormalEventDuration implements Distribution{
         }
         
         Z = (z - mu_z) / sigma_z;
-        System.out.println("Z grande: " + Z);
 
         return Z * this.sigmaNormal + this.muNormal;
 

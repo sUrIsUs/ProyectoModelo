@@ -28,19 +28,19 @@ public class AirportStatistics extends Statistics{
 
     @Override
     public void processGeneralStatistics(Server server) {
-        System.out.println("Tiempos de transito");
+        System.out.println("Tiempos de transito de la entidad en el servidor");
         System.out.println("\tMedio: "+ (this.getTransit().getTotalTransit() / this.getDepartureInstances()));
         System.out.println("\tMax: " + this.getTransit().getMaxTransit());
         System.out.println("\tMin: " + ((this.getTransit().getMinTransit() == 100000000) ? "": this.getTransit().getMinTransit()));
-        System.out.println("Tiempos de espera");
+        System.out.println("Tiempos de espera de la entidad en el servidor");
         System.out.println("\tMedio: "+ (this.getWait().getTotalWait() / this.getDepartureInstances()));
         System.out.println("\tMax: " + this.getWait().getMaxWait());
         System.out.println("\tMin: " + ((this.getWait().getMinWait() == 100000000) ? "": this.getWait().getMinWait()));
-        System.out.println("Tiempos de ocio");
+        System.out.println("Tiempos de ocio del servidor");
         System.out.println("\tMedio: "+ (this.getIdle().getTotalIdle() / this.getDepartureInstances()));
         System.out.println("\tMax: " + this.getIdle().getMaxIdle());
         System.out.println("\tMin: " + ((this.getIdle().getMinIdle() == 100000000) ? "": this.getIdle().getMinIdle()));
-        System.out.println("Tamaños de cola");
+        System.out.println("Tamaños de cola del servidor");
         System.out.println("\tMax cola: " + server.getQueue().getMaxSize());
         System.out.println("\tMin cola: " + ((server.getQueue().getMinSize() == 100000000) ? "": server.getQueue().getMinSize()));
     }
