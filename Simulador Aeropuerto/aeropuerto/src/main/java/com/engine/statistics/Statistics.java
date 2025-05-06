@@ -17,7 +17,10 @@ public abstract class Statistics {
     private Idle idle;
     private Transit transit;
     private Wait wait;
-
+    private static Idle idleTotal = new Idle();
+    private static Transit transitTotal = new Transit();
+    private static Wait waitTotal = new Wait(); 
+    
     public Statistics() {
         this.idle = new Idle();
         this.transit = new Transit();
@@ -53,7 +56,33 @@ public abstract class Statistics {
         departureInstances++;
     }
     
-    public abstract void computeStatistics(EntityHistory entityHistory, Server server);
-    public abstract void processGeneralStatistics(Server server);
+    public static Idle getIdleTotal() {
+        return idleTotal;
+    }
+    
+    public static void setIdleTotal(Idle idleTotal) {
+        Statistics.idleTotal = idleTotal;
+    }
+    
+    public static Transit getTransitTotal() {
+        return transitTotal;
+    }
+    
+    public static void setTransitTotal(Transit transitTotal) {
+        Statistics.transitTotal = transitTotal;
+    }
+    
+    public static Wait getWaitTotal() {
+        return waitTotal;
+    }
+    
+    public static void setWaitTotal(Wait waitTotal) {
+        Statistics.waitTotal = waitTotal;
+    }
 
+    public abstract void computeStatistics(EntityHistory entityHistory, Server server);
+    public abstract void processServerStatistics(Server server);
+    public abstract void processGeneralStatistics(int arrivals, int departures);
+    
+    
 }
