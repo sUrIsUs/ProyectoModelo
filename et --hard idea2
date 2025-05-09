@@ -1,0 +1,268 @@
+[33mcommit 3afb395bba12b0b4eac691f1ee5e0050662cb5ef[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Mon May 5 10:27:07 2025 -0300
+
+    .class
+
+[33mcommit 840364acd98f3e4f974663c2347f1f8fb938abf6[m
+Merge: 0a64958 e0c6d59
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Sun May 4 20:43:51 2025 -0300
+
+    Merge branch 'main' of https://github.com/sUrIsUs/ProyectoModelo
+
+[33mcommit 0a649583ecaa091feb19ba325044c9b6e604bf20[m[33m ([m[1;31morigin/idea2[m[33m, [m[1;32midea2[m[33m)[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Sun May 4 20:34:45 2025 -0300
+
+    Idea 2 implementada exitosamente. Antes de merge nuevo branch
+
+[33mcommit e0c6d59fffc3474219a582d523be7351196e4d51[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Sun May 4 16:51:23 2025 -0300
+
+     Idea 1
+
+[33mcommit 0befbd26511a1943656c5793d3a6362757f5466c[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Sun May 4 16:50:00 2025 -0300
+
+    Modelo actualizado
+
+[33mcommit 06e95af742b3ff085f8092346e1414cbd035c129[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Sun May 4 16:38:47 2025 -0300
+
+    Agregado distribución normal. Idea 1 duración de servicio implementando tiempo descenso pasajeros
+
+[33mcommit 41ff9c9697e7d1178a72e6807fc4ae7d8f2950a2[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Fri May 2 20:32:27 2025 -0300
+
+    Terminado DynamicExponentialDistribution, y agregado exceptions y su Test
+
+[33mcommit 2f2c72d33ee727c1590793b405e29fe4c9ad5639[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Thu May 1 20:23:32 2025 -0300
+
+    Modelo actualizado (etapa 2)
+    
+    Update 2da Etapa.vpp
+
+[33mcommit 7fd30589dd00da231de471bedd5eb7fb23ac6887[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Thu May 1 20:23:14 2025 -0300
+
+    Update 2da Etapa.vpp
+
+[33mcommit 916d733545ce3f2a432a38b60f796cf72bebbb2b[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Thu May 1 20:20:58 2025 -0300
+
+    Implementadas algunas clases agregadas ultimo modelo (etapa 2)
+
+[33mcommit 1d74af17e3a3d91bfe90bdfa06cdf7b844f122dc[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Wed Apr 30 14:52:03 2025 -0300
+
+    Actualizado modelo 2da etapa e implementamos un par de clases del modelo
+
+[33mcommit 0f9e3e12971d27175275ffde202ce2d0ffa071b0[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Mon Apr 28 14:15:07 2025 -0300
+
+    Actualizado 2da etapa. Además modificamos ServerPrioritizer
+
+[33mcommit 1e86c23936157fc0ff893b7770d9bd5fe7e47ddf[m
+Author: Sirius <juancruzpaez030@gmail.com>
+Date:   Sun Apr 27 14:07:43 2025 -0300
+
+    acomodado el modelo etapa 2
+
+[33mcommit 00d7a7dab6ee1135a9df2496bb634534b3f46376[m
+Author: Sirius <juancruzpaez030@gmail.com>
+Date:   Sat Apr 26 18:04:32 2025 -0300
+
+    Implementado el modelo para la fase 2. Ademas implementamos new Entity en el planificate, y corregimos la computacion de estadisticas para los servidores
+
+[33mcommit fbaffbe4575eee73b84a110268751907f446165d[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sat Apr 26 12:55:48 2025 -0400
+
+    Completado informe 1er etapa
+
+[33mcommit 317028f641c4f6540f49a543b169b8d25620dded[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sat Apr 26 11:51:02 2025 -0300
+
+    Actualizado modelo dominio 1er etapa
+
+[33mcommit 847ff4bd470b6686eff75df2e55088cab58d40a7[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Mon Apr 21 10:17:06 2025 -0300
+
+    Final robusto fuerte:Corregido cantidad de arribos; ahora contamos cuando spawnea y no cuando lo atiende el server
+
+[33mcommit c01211b34add494c62516553841934a566d69222[m
+Merge: c53560d 9292f4c
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Sun Apr 20 12:33:18 2025 -0300
+
+    Merge branch 'main' of https://github.com/sUrIsUs/ProyectoModelo
+
+[33mcommit c53560df8c95c785a6f4eaab91cc827926139068[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Sun Apr 20 12:32:54 2025 -0300
+
+    Codigo para entregar robusto
+
+[33mcommit 9292f4c097001622f011cd6c64444b2f03fb158c[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Apr 20 09:40:58 2025 -0300
+
+    Estaba mal escroto el word del informe
+
+[33mcommit 63fdeafe8b1ed320319bb7155c8bc0ecdd9177e6[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Fri Apr 18 14:43:06 2025 -0300
+
+    Terminada la primer etapa (listo para entregar)
+
+[33mcommit 3210151b06b3bad6a985a090d4fe3038cbdfa829[m
+Merge: 361d6fb e8f1ebd
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Apr 18 09:26:01 2025 -0300
+
+    No se que toque!!1!
+
+[33mcommit 361d6fbf6d959bbc862b6c15ce74f048ff65fe86[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Apr 18 09:22:47 2025 -0300
+
+    Agregado excel automatizado para prueba
+
+[33mcommit e8f1ebde4266feef8bd4c5c86633140e0ebe94b7[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Thu Apr 17 21:44:56 2025 -0300
+
+    ejecutable
+
+[33mcommit d959dda4cf86d6593a762b779801ee8fb64b460e[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sat Apr 12 14:08:10 2025 -0300
+
+    Añadido algunos test, en preparativo para poder ejecutar
+
+[33mcommit 4912b7253a0ad462d14cd0e513f8f1a5b0a49c5a[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Apr 11 19:24:47 2025 -0300
+
+    Clase consulta 11/04/2025: Agregado comparators, y pseudo empezado los test
+
+[33mcommit fd68d928f9709f6f6c717fedda87e46fba2a27e1[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Mon Apr 7 13:44:30 2025 -0300
+
+    Statistics completed
+
+[33mcommit 06797944d695f95e4117f4ed14c9053af3dbb44d[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Apr 6 15:38:24 2025 -0300
+
+    idea statistics 2
+
+[33mcommit ee00c308ea1e9e9e81f3d9b9e7a2aabc171a5654[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Apr 6 15:04:32 2025 -0300
+
+    idea statistics 1
+
+[33mcommit b1759be1fcd80ffaec6613af2bb69ae85311914a[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Apr 6 13:35:36 2025 -0300
+
+    Casa Facu 06/04: implementamos coherencia del codigo con el modelo
+
+[33mcommit f12ee5faff2fbd97b76c09697b12d8df32c378c2[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Apr 4 13:38:22 2025 -0300
+
+    Clase consulta 04/04/2025: Solucionamos estadísticas
+
+[33mcommit a2a64758b52bf2c0aa9f783192b932e2656355ce[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Apr 4 11:20:09 2025 -0300
+
+    Actualizado dominio
+
+[33mcommit 6bfb9eca3fc4e0411b59f86755975ca084a96fae[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Wed Apr 2 19:49:54 2025 -0300
+
+    miercoles 02/04
+
+[33mcommit 6f630a6be2d8a7c826c8b6e3a10cfaac52a1b72c[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Wed Apr 2 10:06:51 2025 -0300
+
+    FEL, Distribution of landing and time between arrivals, CodeGenerator
+
+[33mcommit d792c1c6b13c5dacf048c711eed3f2dff0cace4e[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Tue Apr 1 06:42:35 2025 -0300
+
+    Clase server, queue,
+
+[33mcommit 384efc5501cf5cbac24b8f8588c04e779c263e78[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Mar 30 20:38:24 2025 -0300
+
+    Continuado codigo, modificado modelo, y agregado archivo preguntas
+
+[33mcommit 4a41acb9a88a6526dd0a03e234c3fc4a529ca555[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Mar 30 19:58:39 2025 -0300
+
+    Agregado proyecto vs inicial de 0
+
+[33mcommit cfd29ff49dc1f456067c814a5201252b0613d041[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Mar 30 19:25:29 2025 -0300
+
+    Agregado modelo de dominio y carpeta pizarron
+
+[33mcommit 012877f5e9112c2d41bfabe1b004dea321730426[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Mar 30 10:15:03 2025 -0300
+
+    Eliminado archivo 'prueba.txt'. Fundamento: limpiar la carpeta
+
+[33mcommit 88a3bd8246502e031a235417a510c4226562d081[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sun Mar 30 10:12:21 2025 -0300
+
+    Agregado fotos explicacion FEL clase practica
+
+[33mcommit 1b4f11af0ce1260db05c6fe18b7d4dc37409c737[m
+Author: ffacu <facundonicolasfariaslozano@gmail.com>
+Date:   Sat Mar 29 15:06:41 2025 -0300
+
+    Agregado imagen del modelo de dominio hecho en clase de consulta
+
+[33mcommit 5c3d6c41871c8f6ff5b005837cb9db238c9b9dfc[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Fri Mar 28 20:19:57 2025 -0300
+
+    Commit prueba repo privado
+
+[33mcommit ad94eeb1a82331df8d34ab0e160ea59a7d0cca0b[m
+Author: Facundo Farias <facundonicolasfariaslozano@gmail.com>
+Date:   Wed Mar 26 16:27:56 2025 -0300
+
+    Añadido ununciado del proyecto
+
+[33mcommit 7a9677cb275088fcb781d559da9b6f3fd4ddf8b9[m
+Author: Paez Juan <juancruzpaez030@gmail.com>
+Date:   Wed Mar 26 15:29:19 2025 -0300
+
+    Initial commit

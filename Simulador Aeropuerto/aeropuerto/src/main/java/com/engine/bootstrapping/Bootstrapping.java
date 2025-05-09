@@ -11,6 +11,7 @@ import com.engine.events.Arrival;
 import com.engine.events.Event;
 import com.engine.exceptions.NegativeNumberException;
 import com.engine.server.Servers;
+import com.engine.statistics.Statistics;
 import com.engine.statistics.StatisticsFactory;
 
 /**
@@ -62,7 +63,7 @@ public class Bootstrapping{
             // Inicializar servers
             this.servers = new Servers(serverPrioritizer);
             servers.addServers(serversQuantity, statisticsFactory, serverDurability, durability);;
-
+            Statistics.setSimulationLength(simulationLength);
             //añado primer evento
             fel.addEvent(new Arrival(2,  0, new Aircraft(), serviceDuration, timeBetweenArrival));
 

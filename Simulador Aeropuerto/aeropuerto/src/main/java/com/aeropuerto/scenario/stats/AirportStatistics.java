@@ -4,7 +4,6 @@ import com.engine.entity.EntityHistory;
 import com.engine.events.Event;
 import com.engine.server.Server;
 import com.engine.statistics.Statistics;
-import com.engine.statistics.Transit;
 
 /**
  * @author Paez Juan Cruz
@@ -38,10 +37,6 @@ public class AirportStatistics extends Statistics {
         System.out.println("\tMedio: "+ (this.getWait().getTotal() / this.getDepartureInstances()));
         System.out.println("\tMax: " + this.getWait().getMax());
         System.out.println("\tMin: " + ((this.getWait().getMin() == 100000000) ? "": this.getWait().getMin()));
-        System.out.println("Tiempos de ocio del servidor");
-        System.out.println("\tMedio: "+ (this.getIdle().getTotal() / this.getDepartureInstances()));
-        System.out.println("\tMax: " + this.getIdle().getMax());
-        System.out.println("\tMin: " + ((this.getIdle().getMin() == 100000000) ? "": this.getIdle().getMin()));
         System.out.println("Tamaños de cola del servidor");
         System.out.println("\tMax cola: " + server.getQueue().getMaxSize());
         System.out.println("\tMin cola: " + ((server.getQueue().getMinSize() == 100000000) ? "": server.getQueue().getMinSize()));
@@ -97,7 +92,7 @@ public class AirportStatistics extends Statistics {
         System.out.println("Espera Mínimo: " + Statistics.getWaitTotal().getMin());
         System.out.println();
         
-        System.out.println("Ocio medio: "+ Statistics.getIdleTotal().getTotal() / departures);
+        System.out.println("Ocio total proporcional al tiempo: %"+ (Statistics.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100);
         System.out.println("Ocio Máximo: " + Statistics.getIdleTotal().getMax());
         System.out.println("Ocio Mínimo: " + Statistics.getIdleTotal().getMin());
         System.out.println();

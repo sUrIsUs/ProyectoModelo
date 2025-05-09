@@ -20,6 +20,8 @@ public abstract class Statistics {
     private static Idle idleTotal = new Idle();
     private static Transit transitTotal = new Transit();
     private static Wait waitTotal = new Wait(); 
+    private static double simulationLength;
+
     
     public Statistics() {
         this.idle = new Idle();
@@ -75,9 +77,16 @@ public abstract class Statistics {
     public static Wait getWaitTotal() {
         return waitTotal;
     }
-    
     public static void setWaitTotal(Wait waitTotal) {
         Statistics.waitTotal = waitTotal;
+    }
+    
+    public static double getSimulationLength() {
+        return simulationLength;
+    }
+
+    public static void setSimulationLength(double simulationLength) {
+        Statistics.simulationLength = simulationLength;
     }
 
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
