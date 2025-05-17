@@ -28,7 +28,7 @@ public class Bootstrapping{
 
     public Bootstrapping(Statistics statistics) {
         this.fel = new FEL(new EventPrioritizer());
-        this.clock = new Clock();
+        this.clock = new Clock(0);
         this.statistics = statistics;
     }
 
@@ -87,7 +87,7 @@ public class Bootstrapping{
         e.printStackTrace();
          throw new Exception("Ha ocurrido un error inesperado: " + e.getMessage());
     }
-
+    
     return this.statistics;
 }
 
@@ -130,49 +130,4 @@ private void validateParameters(
         throw new IllegalArgumentException("El generador de entidades no puede ser nulo.");
 }
 
-        // public Statistics startSimulation(double simulationLength, Randomizer randomizer, int serversQuantity,double durability, Distribution serverDurability , ServerPrioritizer serverPrioritizer,  Distribution serviceDuration, Distribution timeBetweenArrival, EntityFactory entityFactory, StatisticsFactory statisticsFactory){
-        //     try{
-        //         // Validaciones de parámetros
-        //         if (randomizer == null)
-        //         throw new IllegalArgumentException("El generador de números aleatorios (Randomizer) no puede ser nulo.");
-        //         if (statisticsFactory == null)
-        //             throw new IllegalArgumentException("La instancia de estadísticas no puede ser nula.");
-        //         if (serverPrioritizer == null)
-        //             throw new IllegalArgumentException("El priorizador de servidores no puede ser nulo.");
-        //         if (serviceDuration == null)
-        //             throw new IllegalArgumentException("La duración del servicio no puede ser nula.");
-        //         if (timeBetweenArrival == null)
-        //             throw new IllegalArgumentException("El tiempo entre arribos no puede ser nulo.");
-        //         if (simulationLength <= 0)
-        //             throw new NegativeNumberException("La duración de la simulación debe ser mayor que cero.");
-        //         if (serversQuantity <= 0)
-        //             throw new NegativeNumberException("La cantidad de servidores debe ser mayor que cero.");
-
-        //         // Inicializar servers
-        //         this.servers = new Servers(serverPrioritizer);
-        //         servers.addServers(serversQuantity, serverDurability, durability);;
-        //         Statistics.setSimulationLength(simulationLength);
-        //         //añado primer evento
-        //         fel.addEvent(new Arrival(2,  0, new Aircraft(), serviceDuration, timeBetweenArrival));
-
-        //         // Empiezo simulacion
-        //         while(simulationLength >= Clock.clock){
-        //             Event inminent = fel.inminent();
-
-        //             //Actualizo clock de la simulación
-        //             this.clock.setClock(inminent.getClock());
-                    
-        //             inminent.planificate(fel, servers, inminent, randomizer, entityFactory, this.statistics);
-        //         }
-        //         this.statistics.processGeneralStatistics( );
-        //     } catch (NegativeNumberException | IllegalArgumentException e) {
-        //         System.out.println("Error al iniciar la simulación: " + e.getMessage());
-        //     } catch (Exception e) {
-        //         System.out.println("Ha ocurrido un error inesperado: " + e.getMessage());
-        //         e.printStackTrace();
-        //     }
-            
-        //     //Muestro estadisticas
-        //     return this.statistics;
-        // }
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.engine.comparators.ServerPrioritizer;
 import com.engine.distribution.Distribution;
-import com.engine.statistics.StatisticsFactory;
 
 public class Servers {
     private List<Server> servers;

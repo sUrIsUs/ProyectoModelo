@@ -38,13 +38,37 @@ public abstract class Statistics {
     public Idle getIdleTotal() {
         return idleTotal;
     }
+
+    public double getMaxIdle(){
+        return this.idleTotal.getMax();
+    }
+
+    public double getMinIdle(){
+        return this.idleTotal.getMin();
+    }
     
     public Transit getTransitTotal() {
         return transitTotal;
     }
+
+    public double getMaxTransit(){
+        return this.transitTotal.getMax();
+    }
+
+    public double getMinTransit(){
+        return this.transitTotal.getMin();
+    }
     
     public Wait getWaitTotal() {
         return waitTotal;
+    }
+
+    public double getMaxWait(){
+        return this.waitTotal.getMax();
+    }
+
+    public double getMinWait(){
+        return this.waitTotal.getMin();
     }
     
     public void incrementArrivalInstances(){
@@ -54,7 +78,7 @@ public abstract class Statistics {
     public void incrementDepartureInstances(){
         departureInstances++;
     }
-    
+
     public static double getSimulationLength() {
         return simulationLength;
     }
@@ -65,6 +89,7 @@ public abstract class Statistics {
 
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
     public abstract void processGeneralStatistics();
+
     
     
 }
