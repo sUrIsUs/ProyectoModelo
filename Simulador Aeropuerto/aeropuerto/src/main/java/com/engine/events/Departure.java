@@ -6,6 +6,7 @@ import com.engine.entity.Entity;
 import com.engine.entity.EntityFactory;
 import com.engine.server.Server;
 import com.engine.server.Servers;
+import com.engine.statistics.Statistics;
 
 public class Departure extends Event {
 
@@ -17,7 +18,7 @@ public class Departure extends Event {
     }
 
     @Override
-    public void planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer, EntityFactory entityFactory) {
+    public void planificate(FEL fel, Servers servers, Event departure, Randomizer randomizer, EntityFactory entityFactory, Statistics statistics) {
         Server server = servers.getServerId(this.entity.getServerId());
         if(server.getQueue().size() == 0){  
              server.setEntity(null);
@@ -30,8 +31,8 @@ public class Departure extends Event {
         }
         
         departure.getEntity().getEntityHistory().addDeparture(departure);
-        server.getStatistics().incrementDepartureInstances();
-        server.getStatistics().computeStatistics(departure.getEntity().getEntityHistory(), server);
+        statistics.incrementDepartureInstances();
+        statistics.computeStatistics(departure.getEntity().getEntityHistory(), server);
         server.determineDurability(randomizer);
         // Retorno el servidor utilizado para mostrar las estadísticas
     }

@@ -1,7 +1,6 @@
 package com.engine.server;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import com.engine.comparators.ServerPrioritizer;
@@ -32,26 +31,10 @@ public class Servers {
         return servers.get(i);
     }
 
-    public void addServers(int serversCantity, StatisticsFactory statisticsFactory, Distribution distribution, double durability){
+    public void addServers(int serversCantity, Distribution distribution, double durability){
         for(int i = 0; i < serversCantity; i++){
-            this.servers.add(new Server(serverCodeGenerator, statisticsFactory.create(), distribution, durability));
+            this.servers.add(new Server(serverCodeGenerator, distribution, durability));
            
         }
     }
-
-    public void computeServerStatistics(){
-        int arrivals = 0, departure = 0;
-        Server s = servers.getFirst(); 
-        System.out.println("===================================================");
-        this.servers.sort(Comparator.comparing(Server::getId));
-        for(Server server : this.servers){
-            
-            server.getStatistics().processServerStatistics(server);
-            arrivals += server.getStatistics().getArrivalInstances();
-            departure += server.getStatistics().getDepartureInstances();
-            System.out.println("===================================================");
-        }
-        s.getStatistics().processGeneralStatistics(arrivals, departure);
-    }
-
 }

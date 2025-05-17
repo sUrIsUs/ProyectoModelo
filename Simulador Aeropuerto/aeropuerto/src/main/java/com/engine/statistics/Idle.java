@@ -1,6 +1,6 @@
 package com.engine.statistics;
 
-public class Idle extends DataCollector {
+public final class Idle extends DataCollector {
     
     public Idle(){
         super();

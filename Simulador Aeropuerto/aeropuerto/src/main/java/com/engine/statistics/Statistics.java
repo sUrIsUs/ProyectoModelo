@@ -14,19 +14,16 @@ public abstract class Statistics {
     private int arrivalInstances = 0;
     private int departureInstances = 0;
     
-    private Idle idle;
-    private Transit transit;
-    private Wait wait;
-    private static Idle idleTotal = new Idle();
-    private static Transit transitTotal = new Transit();
-    private static Wait waitTotal = new Wait(); 
+    private Idle idleTotal;
+    private Transit transitTotal;
+    private Wait waitTotal;
     private static double simulationLength;
 
     
     public Statistics() {
-        this.idle = new Idle();
-        this.transit = new Transit();
-        this.wait = new Wait();
+        this.idleTotal = new Idle();
+        this.transitTotal = new Transit();
+        this.waitTotal = new Wait();
     }
     // Variables estáticas
     
@@ -38,16 +35,16 @@ public abstract class Statistics {
         return departureInstances;
     }
     
-    public Idle getIdle() {
-        return idle;
+    public Idle getIdleTotal() {
+        return idleTotal;
     }
     
-    public Transit getTransit() {
-        return transit;
+    public Transit getTransitTotal() {
+        return transitTotal;
     }
     
-    public Wait getWait() {
-        return wait;
+    public Wait getWaitTotal() {
+        return waitTotal;
     }
     
     public void incrementArrivalInstances(){
@@ -56,29 +53,6 @@ public abstract class Statistics {
     
     public void incrementDepartureInstances(){
         departureInstances++;
-    }
-    
-    public static Idle getIdleTotal() {
-        return idleTotal;
-    }
-    
-    public static void setIdleTotal(Idle idleTotal) {
-        Statistics.idleTotal = idleTotal;
-    }
-    
-    public static Transit getTransitTotal() {
-        return transitTotal;
-    }
-    
-    public static void setTransitTotal(Transit transitTotal) {
-        Statistics.transitTotal = transitTotal;
-    }
-    
-    public static Wait getWaitTotal() {
-        return waitTotal;
-    }
-    public static void setWaitTotal(Wait waitTotal) {
-        Statistics.waitTotal = waitTotal;
     }
     
     public static double getSimulationLength() {
@@ -90,8 +64,7 @@ public abstract class Statistics {
     }
 
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
-    public abstract void processServerStatistics(Server server);
-    public abstract void processGeneralStatistics(int arrivals, int departures);
+    public abstract void processGeneralStatistics();
     
     
 }

@@ -4,6 +4,7 @@ import com.engine.Randomizer;
 import com.engine.entity.Entity;
 import com.engine.entity.EntityFactory;
 import com.engine.server.Servers;
+import com.engine.statistics.Statistics;
 
 public abstract class Event {
     int type; // 0 -> Departure, 1 -> End, 2 -> Arrival
@@ -16,7 +17,7 @@ public abstract class Event {
         this.entity = entity;
     }
 
-    public abstract void planificate(FEL fel, Servers servers, Event event, Randomizer randomizer, EntityFactory entityFactory);
+    public abstract void planificate(FEL fel, Servers servers, Event event, Randomizer randomizer, EntityFactory entityFactory, Statistics statistics);
 
     public int getType() {
         return type;

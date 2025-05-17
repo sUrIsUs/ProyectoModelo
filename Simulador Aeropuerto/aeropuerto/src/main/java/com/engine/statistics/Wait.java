@@ -1,6 +1,6 @@
 package com.engine.statistics;
 
-public class Wait extends DataCollector {
+public final class Wait extends DataCollector {
 
     public Wait(){
         super();

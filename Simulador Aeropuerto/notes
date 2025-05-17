@@ -6,6 +6,11 @@
     + Hacer clase abstracta Statistics con todas las cuestiones, no importa si quedan atributos y metodos que el usuario no utilice
 - Es necesario mantener Entity como clase abstracta? Es decir, necesitamos la clase Aircraft?
 
+- Cambios 3ra etapa:
+    + Eliminamos el statistics factory, airportStatisticsFactory
+    + Statistics no es mas atributo de server, ahora tenemos una instancia de statistics
+
+
 Tasks
 - Bootstrap
     + Bootstrapping

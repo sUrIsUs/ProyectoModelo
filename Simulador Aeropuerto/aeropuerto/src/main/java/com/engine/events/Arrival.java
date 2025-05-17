@@ -7,6 +7,7 @@ import com.engine.entity.Entity;
 import com.engine.entity.EntityFactory;
 import com.engine.server.Server;
 import com.engine.server.Servers;
+import com.engine.statistics.Statistics;
 
 public class Arrival extends Event {
 
@@ -21,12 +22,12 @@ public class Arrival extends Event {
 
 
     @Override
-    public void planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer, EntityFactory entityFactory) {
+    public void planificate(FEL fel, Servers servers, Event arrival, Randomizer randomizer, EntityFactory entityFactory, Statistics statistics) {
         Server server = servers.getServer();
         this.entity.setServerId(server.getId());
         arrival.getEntity().getEntityHistory().addArrival(arrival);
         // Cuando un avión spawnea en la simu, incremento la cantidad de arribos en uno
-        server.getStatistics().incrementArrivalInstances();
+        statistics.incrementArrivalInstances();
         // Si el server esta ocupado, agrego el arribo a la cola
         if(server.isBusy()){
             server.getQueue().add(arrival);

@@ -3,7 +3,6 @@ package com.engine.server;
 import com.engine.Randomizer;
 import com.engine.distribution.Distribution;
 import com.engine.entity.Entity;
-import com.engine.statistics.Statistics;
 
 public class Server {
     
@@ -11,23 +10,17 @@ public class Server {
     private int id;
     
     private final Queue queue;
-    private Statistics statistics;
     private double lastDeparture;
     private Distribution distribution;
     private double durability;
     
-    public Server(ServerCodeGenerator serverCodeGenerator, Statistics statistics, Distribution distribution, double durability) {
+    public Server(ServerCodeGenerator serverCodeGenerator, Distribution distribution, double durability) {
         this.entity = null;
         this.id = serverCodeGenerator.nextCode();
         this.queue = new Queue();
-        this.statistics = statistics;
         this.lastDeparture = 0;
         this.distribution = distribution;
         this.durability = durability;
-    }
-
-    public void setStatistics(Statistics statistics){
-        this.statistics = statistics;
     }
     
     public boolean isBusy(){
@@ -40,10 +33,6 @@ public class Server {
     
     public Queue getQueue() {
         return queue;
-    }
-    
-    public Statistics getStatistics(){
-        return this.statistics;
     }
     
     public double getLastDeparture() {
