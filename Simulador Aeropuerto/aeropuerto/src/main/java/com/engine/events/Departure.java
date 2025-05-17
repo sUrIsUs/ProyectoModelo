@@ -34,7 +34,6 @@ public class Departure extends Event {
         statistics.incrementDepartureInstances();
         statistics.computeStatistics(departure.getEntity().getEntityHistory(), server);
         server.determineDurability(randomizer);
-        // Retorno el servidor utilizado para mostrar las estadísticas
     }
     
 }

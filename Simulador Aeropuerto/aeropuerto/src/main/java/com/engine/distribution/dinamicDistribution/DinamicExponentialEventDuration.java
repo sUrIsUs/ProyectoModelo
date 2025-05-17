@@ -10,15 +10,15 @@ import java.lang.Math;
 public class DinamicExponentialEventDuration extends DinamicEventDuration {
 
     private double []intervals;
-    private double []peaksλ;
-    private double notPeakλ;
+    private double []peaksMu;
+    private double notPeakMu;
 
-    public DinamicExponentialEventDuration(double []intervals, double []peaksλ, double notPeakλ) throws ArraysNull,NegativeNumberException, OverlappingException{
+    public DinamicExponentialEventDuration(double []intervals, double []peaksMu, double notPeakMu) throws ArraysNull,NegativeNumberException, OverlappingException{
 
         super();
         this.intervals = intervals;
-        this.peaksλ = peaksλ;
-        this.notPeakλ = notPeakλ;     
+        this.peaksMu = peaksMu;
+        this.notPeakMu = notPeakMu;     
         try {
             determineException();
         } catch(ArraysNull e){
@@ -31,51 +31,51 @@ public class DinamicExponentialEventDuration extends DinamicEventDuration {
             System.out.println("Erroneamente implementado la distribución" + e.getMessage());
             throw e;
         }
-        intervalsDivider(intervals, peaksλ);
+        intervalsDivider(intervals, peaksMu);
 
     }
 
     @Override
     public double generateValue(Randomizer randomizer) {
-        double λ = notPeakλ;
+        double mu = notPeakMu;
         for(int i = 0; i < (this.intervals.length / 2); i++){
             if((this.intervals[i*2] < (this.clock.getClock() % 1440)) && ((this.clock.getClock() % 1440) < this.intervals[(i*2)+1]) ){
-                λ = this.peaksλ[i];
+                mu = this.peaksMu[i];
             }
         }
-        return ( (-λ) * (Math.log(1 - randomizer.next())) );
+        return ( (-mu) * (Math.log(1 - randomizer.next())) );
     }
 
-    private void intervalsDivider(double [] intervals, double [] peaksλ){
+    private void intervalsDivider(double [] intervals, double [] peaksMu){
         double [] intervalsR = new double[intervals.length + 1];
-        double [] peaksλR = new double[peaksλ.length];
+        double [] peaksλR = new double[peaksMu.length];
         Boolean flag = false;
         for(int i = 0; i < intervals.length / 2; i++){
             intervalsR[i*2] = intervals[i*2];
             intervalsR[i*2 + 1] = intervals[i*2 + 1];
-            peaksλR[i] = peaksλ[i];
+            peaksλR[i] = peaksMu[i];
             if(intervals[i*2] > intervals[i*2 + 1]){
                 double aux = intervals[i*2 + 1];
                 intervals[i*2 + 1] = 24;
                 intervalsR[intervals.length] = 0;
                 intervalsR[intervals.length + 1] = aux;
-                peaksλR[peaksλ.length] = peaksλ[i];
+                peaksλR[peaksMu.length] = peaksMu[i];
                 flag = true;
             }
         }
         if(flag){
             this.intervals = intervalsR;
-            this.peaksλ = peaksλR;
+            this.peaksMu = peaksλR;
         }
         else{
             this.intervals = intervals;
-            this.peaksλ = peaksλ;
+            this.peaksMu = peaksMu;
         }
     }
 
     private void determineException() throws ArraysNull, NegativeNumberException, OverlappingException{
 
-        if(this.intervals == null || this.peaksλ == null){
+        if(this.intervals == null || this.peaksMu == null){
             throw new ArraysNull("No se aceptan intervalos nulos");
         }
         for(int i = 0; i < this.intervals.length/2 ; i++){
