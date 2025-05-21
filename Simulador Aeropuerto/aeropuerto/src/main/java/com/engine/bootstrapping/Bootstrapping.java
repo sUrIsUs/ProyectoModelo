@@ -76,6 +76,7 @@ public class Bootstrapping{
             inminent.planificate(fel, servers, inminent, randomizer, entityFactory, this.statistics);
         }
 
+        this.statistics.setServers(servers);
         this.statistics.processGeneralStatistics();
 
     }catch (NegativeNumberException  e) {

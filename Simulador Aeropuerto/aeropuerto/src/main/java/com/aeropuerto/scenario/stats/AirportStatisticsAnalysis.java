@@ -19,8 +19,8 @@ public class AirportStatisticsAnalysis extends StatisticsAnalysis {
         this.parameter.processParameter("Min transito", this.executionsQuantity, this.statisticsList, Statistics::getMinTransit);
         this.parameter.processParameter("Maximo espera", this.executionsQuantity, this.statisticsList, Statistics::getMaxWait);
         this.parameter.processParameter("Min espera", this.executionsQuantity, this.statisticsList, Statistics::getMinWait);
-        this.parameter.processParameter("Min espera", this.executionsQuantity, this.statisticsList, Statistics::getMinWait);
-
+        this.parameter.processParameter("Durabilidad", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(1).getDurability());
+    
     }
     
 }

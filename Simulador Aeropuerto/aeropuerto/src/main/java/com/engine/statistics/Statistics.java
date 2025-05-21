@@ -2,6 +2,7 @@ package com.engine.statistics;
 
 import com.engine.entity.EntityHistory;
 import com.engine.server.Server;
+import com.engine.server.Servers;
 
 /**
  * Esta clase almacena estadísticas de ocio y tránsito para cada servidor, y de la espera de las entidades
@@ -18,6 +19,7 @@ public abstract class Statistics {
     private Transit transitTotal;
     private Wait waitTotal;
     private static double simulationLength;
+    private Servers servers;
 
     
     public Statistics() {
@@ -86,6 +88,13 @@ public abstract class Statistics {
     public static void setSimulationLength(double simulationLength) {
         Statistics.simulationLength = simulationLength;
     }
+    public void setServers(Servers servers){
+        this.servers = servers;
+    }
+
+    public Servers getServers(){
+        return this.servers;
+    } 
 
     public abstract void computeStatistics(EntityHistory entityHistory, Server server);
     public abstract void processGeneralStatistics();
