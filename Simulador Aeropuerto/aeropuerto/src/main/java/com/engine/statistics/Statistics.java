@@ -21,13 +21,12 @@ public abstract class Statistics {
     private static double simulationLength;
     private Servers servers;
 
-    
+    //
     public Statistics() {
         this.idleTotal = new Idle();
         this.transitTotal = new Transit();
         this.waitTotal = new Wait();
     }
-    // Variables estáticas
     
     public int getArrivalInstances() {
         return arrivalInstances;
@@ -36,9 +35,14 @@ public abstract class Statistics {
     public int getDepartureInstances() {
         return departureInstances;
     }
-    
+
+    // Getters Idle    
     public Idle getIdleTotal() {
         return idleTotal;
+    }
+
+    public double getIdleMedium(){
+        return this.idleTotal.getTotal() / this.departureInstances;
     }
 
     public double getMaxIdle(){
@@ -49,8 +53,13 @@ public abstract class Statistics {
         return this.idleTotal.getMin();
     }
     
+    // Getters Transit
     public Transit getTransitTotal() {
         return transitTotal;
+    }
+
+    public double getTransitMedium(){
+        return this.transitTotal.getTotal() / this.departureInstances;
     }
 
     public double getMaxTransit(){
@@ -61,8 +70,13 @@ public abstract class Statistics {
         return this.transitTotal.getMin();
     }
     
+    // Getters Wait
     public Wait getWaitTotal() {
         return waitTotal;
+    }
+
+    public double getWaitMedium(){
+        return this.waitTotal.getTotal() / this.departureInstances;
     }
 
     public double getMaxWait(){
@@ -77,6 +91,7 @@ public abstract class Statistics {
         arrivalInstances++;
     }
     
+    // 
     public void incrementDepartureInstances(){
         departureInstances++;
     }

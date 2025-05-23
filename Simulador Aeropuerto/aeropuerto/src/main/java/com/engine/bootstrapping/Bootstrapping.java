@@ -77,7 +77,7 @@ public class Bootstrapping{
         }
 
         this.statistics.setServers(servers);
-        this.statistics.processGeneralStatistics();
+        // this.statistics.processGeneralStatistics();
 
     }catch (NegativeNumberException  e) {
         throw new NegativeNumberException("Error al iniciar la simulación: " + e.getMessage());

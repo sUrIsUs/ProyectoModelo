@@ -11,7 +11,6 @@ public class ServerCodeGenerator implements CodeGenerator {
 
     @Override
     public int nextCode() {
-        System.out.println("server code generator: " + ServerCodeGenerator.serverInstances );
         return ServerCodeGenerator.serverInstances++;
     }
     

@@ -36,4 +36,8 @@ public class Servers {
            
         }
     }
+
+    public int getServersSize(){
+        return this.servers.size();
+    }
 }

@@ -30,23 +30,23 @@ public class AirportStatistics extends Statistics {
     public void processGeneralStatistics() {
         System.out.println("===================================================");
         System.out.println("Estadisticas generales");
-        // System.out.println("Transito medio: "+ this.getTransitTotal().getTotal() / this.getDepartureInstances());
-        // System.out.println("Transito Máximo: " + this.getTransitTotal().getMax());
-        // System.out.println("Transito Mínimo: " + this.getTransitTotal().getMin());
-        // System.out.println();
+        System.out.println("Transito medio: "+ this.getTransitTotal().getTotal() / this.getDepartureInstances());
+        System.out.println("Transito Máximo: " + this.getTransitTotal().getMax());
+        System.out.println("Transito Mínimo: " + this.getTransitTotal().getMin());
+        System.out.println();
 
-        // System.out.println("Espera medio: "+ this.getWaitTotal().getTotal() / this.getDepartureInstances());
-        // System.out.println("Espera Máximo: " + this.getWaitTotal().getMax());
-        // System.out.println("Espera Mínimo: " + this.getWaitTotal().getMin());
-        // System.out.println();
+        System.out.println("Espera medio: "+ this.getWaitTotal().getTotal() / this.getDepartureInstances());
+        System.out.println("Espera Máximo: " + this.getWaitTotal().getMax());
+        System.out.println("Espera Mínimo: " + this.getWaitTotal().getMin());
+        System.out.println();
         
-        // System.out.println("Ocio total proporcional al tiempo: %"+ (this.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100);
-        // System.out.println("Ocio Máximo: " + this.getIdleTotal().getMax());
-        // System.out.println("Ocio Mínimo: " + this.getIdleTotal().getMin());
-        // System.out.println();
+        System.out.println("Ocio total proporcional al tiempo: %"+ (this.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100);
+        System.out.println("Ocio Máximo: " + this.getIdleTotal().getMax());
+        System.out.println("Ocio Mínimo: " + this.getIdleTotal().getMin());
+        System.out.println();
         
         System.out.println("Cantidad de entidades que han arribado: " + this.getArrivalInstances());
-        // System.out.println("Cantidad de entidades que han sido atendidas: " + this.getDepartureInstances());
+        System.out.println("Cantidad de entidades que han sido atendidas: " + this.getDepartureInstances());
     }
    
 

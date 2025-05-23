@@ -23,9 +23,9 @@ public final class Queue {
     public void add(Event event){
         this.queue.add(event);
         // Computo máximo de la fila
-        if(queue.size() > this.maxSize) this.maxSize = queue.size();
+        if(this.queue.size() > this.maxSize) this.maxSize = this.queue.size();
         // Computo mínimo de la fila
-        if(queue.size() < minSize && queue.size() != 0) this.minSize = queue.size();
+        if(this.queue.size() < this.minSize && this.queue.size() != 0) this.minSize = this.queue.size();
     }
 
     public boolean isEmpty(){
@@ -41,7 +41,7 @@ public final class Queue {
     }
 
     public int getMinSize(){
-        return minSize;
+        return (this.minSize == 100000000)? 0 : this.minSize;
     }
 
 }

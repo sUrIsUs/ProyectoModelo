@@ -9,7 +9,7 @@ public abstract class StatisticsAnalysis {
 
     protected int executionsQuantity;
     protected List<Statistics> statisticsList;
-    protected  Parameter parameter;
+    protected Parameter parameter;
 
      public StatisticsAnalysis(int executionsQuantity) {
         this.executionsQuantity = executionsQuantity;
