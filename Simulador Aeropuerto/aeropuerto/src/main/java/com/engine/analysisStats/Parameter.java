@@ -25,24 +25,19 @@ public class Parameter {
         this.standardDeviationSample = Math.sqrt(this.standardDeviationSample);
         
         calculateConfidenceInterval(label, executionsQuantity);
-        System.out.println("Media de medias: " + this.meanSample);
-        System.out.println("Desviacion estandar: "+ this.standardDeviationSample);
+        // System.out.println("Media de medias: " + this.meanSample);
+        // System.out.println("Desviacion estandar: "+ this.standardDeviationSample);
         this.meanSample = 0;
         this.standardDeviationSample = 0;
     }
 
 
     private void calculateConfidenceInterval(String label, int executionsQuantity){
-        if(label.startsWith("Minimo cola servidor") || label.startsWith("Maximo cola servidor")){
-            System.out.println("cola: "+ this.standardDeviationSample / Math.sqrt(executionsQuantity));
-        }
         System.out.println("Intervalo de confianza para " + label 
                             + ": ["
                             + (this.meanSample - (1.96 * (this.standardDeviationSample / Math.sqrt(executionsQuantity))))
                             + "; "
                             + (this.meanSample + (1.96 * (this.standardDeviationSample / Math.sqrt(executionsQuantity))))
                             + "]");
-
-
     }
 }
