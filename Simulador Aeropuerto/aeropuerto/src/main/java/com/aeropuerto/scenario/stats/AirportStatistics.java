@@ -21,7 +21,7 @@ public class AirportStatistics extends Statistics {
         arrival = entityHistory.getArrival();
         departure = entityHistory.getDeparture();
         this.getTransitTotal().acumulate(departure.getClock() - arrival.getClock());
-        this.getIdleTotal().acumulate(arrival.getClock() - server.getLastDeparture());
+        server.getIdle().acumulate(arrival.getClock() - server.getLastDeparture());
         this.getWaitTotal().acumulate(entityHistory.getServiceArrivalClock() - arrival.getClock());
         server.setLastDeparture(departure.getClock());
     }
@@ -40,9 +40,9 @@ public class AirportStatistics extends Statistics {
         System.out.println("Espera Mínimo: " + this.getWaitTotal().getMin());
         System.out.println();
         
-        System.out.println("Ocio total proporcional al tiempo: %"+ (this.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100);
-        System.out.println("Ocio Máximo: " + this.getIdleTotal().getMax());
-        System.out.println("Ocio Mínimo: " + this.getIdleTotal().getMin());
+        // System.out.println("Ocio total proporcional al tiempo: %"+ (this.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100);
+        // System.out.println("Ocio Máximo: " + this.getIdleTotal().getMax());
+        // System.out.println("Ocio Mínimo: " + this.getIdleTotal().getMin());
         System.out.println();
         
         System.out.println("Cantidad de entidades que han arribado: " + this.getArrivalInstances());

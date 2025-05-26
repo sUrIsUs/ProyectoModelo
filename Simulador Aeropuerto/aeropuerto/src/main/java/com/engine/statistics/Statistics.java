@@ -15,7 +15,6 @@ public abstract class Statistics {
     private int arrivalInstances = 0;
     private int departureInstances = 0;
     
-    private Idle idleTotal;
     private Transit transitTotal;
     private Wait waitTotal;
     private static double simulationLength;
@@ -23,7 +22,6 @@ public abstract class Statistics {
 
     //
     public Statistics() {
-        this.idleTotal = new Idle();
         this.transitTotal = new Transit();
         this.waitTotal = new Wait();
     }
@@ -34,23 +32,6 @@ public abstract class Statistics {
     
     public int getDepartureInstances() {
         return departureInstances;
-    }
-
-    // Getters Idle    
-    public Idle getIdleTotal() {
-        return idleTotal;
-    }
-
-    public double getIdleMedium(){
-        return this.idleTotal.getTotal() / this.departureInstances;
-    }
-
-    public double getMaxIdle(){
-        return this.idleTotal.getMax();
-    }
-
-    public double getMinIdle(){
-        return this.idleTotal.getMin();
     }
     
     // Getters Transit

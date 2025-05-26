@@ -12,29 +12,27 @@ public class AirportStatisticsAnalysis extends StatisticsAnalysis {
     @Override
     public void processAnalysis() {
         System.out.println("========================================================");
+        System.out.println("Intervalos de confianza");
+        System.out.println("========================================================");
         this.parameter.processParameter("Arribos", this.executionsQuantity, this.statisticsList, Statistics::getArrivalInstances);
         this.parameter.processParameter("Aterrizajes", this.executionsQuantity, this.statisticsList, Statistics::getDepartureInstances);
-                System.out.println("========================================================");
-        this.parameter.processParameter("Total porcentual al tiempo de simulación de ocio", this.executionsQuantity, this.statisticsList, stats -> ((stats.getIdleTotal().getTotal() / Statistics.getSimulationLength()) * 100));
-        this.parameter.processParameter("Maximo ocio", this.executionsQuantity, this.statisticsList, Statistics::getMaxIdle);
-        this.parameter.processParameter("Min ocio", this.executionsQuantity, this.statisticsList, Statistics::getMinIdle);
-                System.out.println("========================================================");
+        System.out.println("========================================================");
         this.parameter.processParameter("Maximo transito", this.executionsQuantity, this.statisticsList, Statistics::getMaxTransit);
         this.parameter.processParameter("Medio transito", this.executionsQuantity, this.statisticsList, stats -> stats.getTransitTotal().getTotal() / stats.getDepartureInstances());
         this.parameter.processParameter("Min transito", this.executionsQuantity, this.statisticsList, Statistics::getMinTransit);
-                System.out.println("========================================================");
+        System.out.println("========================================================");
         this.parameter.processParameter("Maximo espera", this.executionsQuantity, this.statisticsList, Statistics::getMaxWait);
         this.parameter.processParameter("Medio espera", this.executionsQuantity, this.statisticsList, stats -> stats.getWaitTotal().getTotal() / stats.getDepartureInstances());
         this.parameter.processParameter("Min espera", this.executionsQuantity, this.statisticsList, Statistics::getMinWait);
-                System.out.println("========================================================");
+        System.out.println("========================================================");
         for(int i = 1; i <= this.statisticsList.get(0).getServers().getServersSize(); i++){
-            int indice = i;
-            this.parameter.processParameter("Durabilidad servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getDurability());
-            this.parameter.processParameter("Maximo cola servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getQueue().getMaxSize());
-            this.parameter.processParameter("Minimo cola servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getQueue().getMinSize());
-            System.out.println("========================================================");
+                int indice = i;
+                this.parameter.processParameter("Durabilidad servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getDurability());
+                this.parameter.processParameter("Maximo cola servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getQueue().getMaxSize());
+                this.parameter.processParameter("Minimo cola servidor " + indice + ": ", this.executionsQuantity, this.statisticsList, stats -> stats.getServers().getServerId(indice).getQueue().getMinSize());
+                this.parameter.processParameter("Total ocio proporcional al tiempo de simulación", this.executionsQuantity, this.statisticsList, stats -> (stats.getServers().getServerId(indice).getIdle().getMax() / Statistics.getSimulationLength()) * 100);
+                System.out.println("========================================================");
         }
-            System.out.println("========================================================");
     }
     
 }

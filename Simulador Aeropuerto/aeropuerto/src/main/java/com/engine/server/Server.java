@@ -3,6 +3,7 @@ package com.engine.server;
 import com.engine.Randomizer;
 import com.engine.distribution.Distribution;
 import com.engine.entity.Entity;
+import com.engine.statistics.Idle;
 
 public class Server {
     
@@ -13,6 +14,7 @@ public class Server {
     private double lastDeparture;
     private Distribution distribution;
     private double durability;
+    private Idle idle;
     
     public Server(ServerCodeGenerator serverCodeGenerator, Distribution distribution, double durability) {
         this.entity = null;
@@ -21,6 +23,7 @@ public class Server {
         this.lastDeparture = 0;
         this.distribution = distribution;
         this.durability = durability;
+        this.idle = new Idle();
     }
     
     public boolean isBusy(){
@@ -58,5 +61,9 @@ public class Server {
 
     public double getDurability(){
         return this.durability;
+    }
+
+    public Idle getIdle(){
+        return this.idle;
     }
 }

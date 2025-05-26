@@ -33,7 +33,7 @@ public class Parameter {
 
 
     private void calculateConfidenceInterval(String label, int executionsQuantity){
-        System.out.println("Intervalo de confianza para " + label 
+        System.out.println("" + label 
                             + ": ["
                             + (this.meanSample - (1.96 * (this.standardDeviationSample / Math.sqrt(executionsQuantity))))
                             + "; "
