@@ -6,7 +6,7 @@ public final class Clock {
     public Clock(){}
 
     protected Clock(double clock){
-        this.clock = clock;
+        Clock.clock = clock;
     }
 
     protected void setClock(double clock){
