@@ -15,6 +15,7 @@ public class Server {
     private Distribution distribution;
     private double durability;
     private Idle idle;
+    private double departureClock;
     
     public Server(ServerCodeGenerator serverCodeGenerator, Distribution distribution, double durability) {
         this.entity = null;
@@ -24,6 +25,7 @@ public class Server {
         this.distribution = distribution;
         this.durability = durability;
         this.idle = new Idle();
+        this.departureClock = 0;
     }
     
     public boolean isBusy(){
@@ -65,5 +67,13 @@ public class Server {
 
     public Idle getIdle(){
         return this.idle;
+    }
+
+    public double getDepartureClock() {
+        return departureClock;
+    }
+
+    public void setDepartureClock(double departureClock) {
+        this.departureClock = departureClock;
     }
 }

@@ -18,7 +18,7 @@ public class RunwayPrioritizer extends ServerPrioritizer{
         return Comparator
             .comparing(Server::isBusy)
             .thenComparingInt(s -> s.getQueue().size())
-            .thenComparingInt(Server::getId)
+            .thenComparingDouble(Server::getDepartureClock)
             .compare(s1, s2);
     }
 

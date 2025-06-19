@@ -34,9 +34,11 @@ public class Arrival extends Event {
         }
         // Si no esta ocupado, genero su salida
         else{
+            double departureClock = this.clock + this.serviceDuration.generateValue(randomizer);
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             server.setEntity(arrival.getEntity());
-            fel.addEvent(new Departure(0, this.clock + this.serviceDuration.generateValue(randomizer), arrival.getEntity(), this.serviceDuration));
+            fel.addEvent(new Departure(0, departureClock, arrival.getEntity(), this.serviceDuration));
+            server.setDepartureClock(departureClock);
         }
         // Planifico nuevo arribo
         fel.addEvent(new Arrival(2, this.clock + this.timeBetweenArrival.generateValue(randomizer), entityFactory.create(), this.serviceDuration, this.timeBetweenArrival));
