@@ -3,7 +3,7 @@ package com.aeropuerto;
 import com.aeropuerto.scenario.RunwayPrioritizer;
 import com.aeropuerto.scenario.airportEntity.AircraftFactory;
 import com.aeropuerto.scenario.distribution.StaticDiscreteEmpiricLandingDuration;
-import com.aeropuerto.scenario.randomizers.AirportRandomizer;
+import com.aeropuerto.scenario.randomizers.StaticRandomizer;
 import com.aeropuerto.scenario.stats.AirportStatistics;
 import com.aeropuerto.scenario.stats.AirportStatisticsAnalysis;
 import com.engine.bootstrapping.Bootstrapping;
@@ -31,7 +31,7 @@ public class Main {
             for (int i = 0; i < executionsQuantity; i ++){
                 bootstrapping = new Bootstrapping(new AirportStatistics());
                 airportStatisticsAnalysis.addStatistics(
-                    bootstrapping.startSimulation(40320d, new AirportRandomizer(), 5, 3000, durabilityList, new RunwayPrioritizer(), landingList, arrivalList, new AircraftFactory())
+                    bootstrapping.startSimulation(40320d, new StaticRandomizer(), 5, 3000, durabilityList, new RunwayPrioritizer(), landingList, arrivalList, new AircraftFactory())
                 );
             }
             airportStatisticsAnalysis.processAnalysis();

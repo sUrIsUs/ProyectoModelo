@@ -9,13 +9,12 @@ public class StaticRandomizer implements Randomizer {
     
 
     public StaticRandomizer(){
-        this.random = new Random(4);
+        this.random = new Random(2);
     }
 
     @Override
     public double next() {
         double rand = this.random.nextDouble();
-        System.out.println(rand);
         return rand;
     }
 }
