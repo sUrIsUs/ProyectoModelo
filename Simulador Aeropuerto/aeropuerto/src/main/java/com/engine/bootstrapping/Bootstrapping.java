@@ -6,6 +6,7 @@ import com.engine.Randomizer;
 import com.engine.comparators.EventPrioritizer;
 import com.engine.comparators.ServerPrioritizer;
 import com.engine.distribution.Distribution;
+import com.engine.distribution.DistributionList;
 import com.engine.entity.EntityFactory;
 import com.engine.events.Arrival;
 import com.engine.events.Event;
@@ -50,14 +51,12 @@ public class Bootstrapping{
     double durability,
     Distribution serverDurability,
     ServerPrioritizer serverPrioritizer,
-    Distribution serviceDuration,
-    Distribution timeBetweenArrival,
+    DistributionList distributionList,
     EntityFactory entityFactory
     ) throws Exception {
     try {
         validateParameters(simulationLength, randomizer, serversQuantity, durability,
-                           serverDurability, serverPrioritizer, serviceDuration,
-                           timeBetweenArrival, entityFactory);
+                           serverDurability, serverPrioritizer, distributionList, entityFactory);
 
         // Inicializar servidores
         this.servers = new Servers(serverPrioritizer);
@@ -67,7 +66,8 @@ public class Bootstrapping{
         Statistics.setSimulationLength(simulationLength);
 
         // Añadir primer evento
-        fel.addEvent(new Arrival(2, 0, new Aircraft(), serviceDuration, timeBetweenArrival));
+
+        fel.addEvent(new Arrival(2, 0, entityFactory.create(), distributionList));
 
         // Comenzar simulación
         while (simulationLength >= Clock.clock) {
@@ -99,8 +99,7 @@ private void validateParameters(
     double durability,
     Distribution serverDurability,
     ServerPrioritizer serverPrioritizer,
-    Distribution serviceDuration,
-    Distribution timeBetweenArrival,
+    DistributionList distributionList,
     EntityFactory entityFactory
 ) throws NegativeNumberException {
     if (simulationLength <= 0)
@@ -121,11 +120,8 @@ private void validateParameters(
     if (serverPrioritizer == null)
         throw new IllegalArgumentException("El priorizador de servidores no puede ser nulo.");
 
-    if (serviceDuration == null)
-        throw new IllegalArgumentException("La duración del servicio no puede ser nula.");
-
-    if (timeBetweenArrival == null)
-        throw new IllegalArgumentException("El tiempo entre arribos no puede ser nulo.");
+    if (distributionList == null)
+        throw new IllegalArgumentException("La lista de distribuciones del servicio no puede ser nula.");
 
     if (entityFactory == null)
         throw new IllegalArgumentException("El generador de entidades no puede ser nulo.");

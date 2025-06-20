@@ -1,7 +1,10 @@
 package com.engine.events;
+import java.util.List;
+
 import com.engine.FEL;
 import com.engine.Randomizer;
 import com.engine.distribution.Distribution;
+import com.engine.distribution.DistributionList;
 import com.engine.entity.Entity;
 import com.engine.entity.EntityFactory;
 import com.engine.server.Server;
@@ -10,11 +13,8 @@ import com.engine.statistics.Statistics;
 
 public class Departure extends Event {
 
-    Distribution serviceDuration;
-
-    public Departure(int codeDeparture, double clock, Entity entity, Distribution serviceDuration) {
-        super(codeDeparture, clock, entity);
-        this.serviceDuration = serviceDuration;
+    public Departure(int codeDeparture, double clock, Entity entity, DistributionList distributionList) {
+        super(codeDeparture, clock, entity, distributionList);
     }
 
     @Override
@@ -25,10 +25,10 @@ public class Departure extends Event {
         }
         else{
             Arrival arrival = (Arrival)server.getQueue().pop();
-            double departureClock = this.clock + this.serviceDuration.generateValue(randomizer);
+            double departureClock = this.clock + this.distributionList.getDistributionByIndex(0).generateValue(randomizer);
             server.setEntity(arrival.getEntity());
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
-            fel.addEvent(new Departure(0, departureClock, arrival.getEntity(), this.serviceDuration));
+            fel.addEvent(new Departure(0, departureClock, arrival.getEntity(), distributionList));
             server.setDepartureClock(departureClock);
         }
         

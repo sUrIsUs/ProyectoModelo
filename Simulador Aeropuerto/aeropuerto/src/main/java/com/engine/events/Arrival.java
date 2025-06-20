@@ -1,8 +1,11 @@
 package com.engine.events;
 
+import java.util.List;
+
 import com.engine.FEL;
 import com.engine.Randomizer;
 import com.engine.distribution.Distribution;
+import com.engine.distribution.DistributionList;
 import com.engine.entity.Entity;
 import com.engine.entity.EntityFactory;
 import com.engine.server.Server;
@@ -11,13 +14,8 @@ import com.engine.statistics.Statistics;
 
 public class Arrival extends Event {
 
-    private Distribution serviceDuration;
-    private Distribution timeBetweenArrival;
-
-    public Arrival(int codeArrival, double clock, Entity entity, Distribution serviceDuration, Distribution timeBetweenArrival) {
-        super(codeArrival, clock, entity);
-        this.serviceDuration = serviceDuration;
-        this.timeBetweenArrival = timeBetweenArrival;
+    public Arrival(int codeArrival, double clock, Entity entity, DistributionList distributionList) {
+        super(codeArrival, clock, entity, distributionList);
     }
 
 
@@ -34,14 +32,20 @@ public class Arrival extends Event {
         }
         // Si no esta ocupado, genero su salida
         else{
-            double departureClock = this.clock + this.serviceDuration.generateValue(randomizer);
+            DistributionList departureDistribution = new DistributionList();
+            departureDistribution.addDistribution(this.distributionList.getDistributionByIndex(0));
+            double departureClock = this.clock + departureDistribution.getDistributionByIndex(0).generateValue(randomizer);
             arrival.getEntity().getEntityHistory().setServiceArrivalClock(this.clock);
             server.setEntity(arrival.getEntity());
-            fel.addEvent(new Departure(0, departureClock, arrival.getEntity(), this.serviceDuration));
+            fel.addEvent(
+                new Departure(0, 
+                departureClock, 
+                arrival.getEntity(), 
+                departureDistribution));
             server.setDepartureClock(departureClock);
         }
         // Planifico nuevo arribo
-        fel.addEvent(new Arrival(2, this.clock + this.timeBetweenArrival.generateValue(randomizer), entityFactory.create(), this.serviceDuration, this.timeBetweenArrival));
+        fel.addEvent(new Arrival(2, this.clock + this.distributionList.getDistributionByIndex(1).generateValue(randomizer), entityFactory.create(), this.distributionList));
     }
     
 }
