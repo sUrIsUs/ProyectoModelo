@@ -4,7 +4,6 @@ import com.aeropuerto.scenario.RunwayPrioritizer;
 import com.aeropuerto.scenario.airportEntity.AircraftFactory;
 import com.aeropuerto.scenario.distribution.StaticDiscreteEmpiricLandingDuration;
 import com.aeropuerto.scenario.randomizers.AirportRandomizer;
-import com.aeropuerto.scenario.randomizers.StaticRandomizer;
 import com.aeropuerto.scenario.stats.AirportStatistics;
 import com.aeropuerto.scenario.stats.AirportStatisticsAnalysis;
 import com.engine.bootstrapping.Bootstrapping;
@@ -14,6 +13,7 @@ import com.engine.distribution.dinamicDistribution.DinamicExponentialEventDurati
 import com.engine.distribution.staticDistribution.StaticExponentialEventDuration;
 import com.engine.distribution.staticDistribution.StaticNormalEventDuration;
 import com.engine.distribution.staticDistribution.StaticUniformEventDuration;
+import com.engine.events.ArrivalFactory;
 import com.engine.exceptions.ArraysNull;
 import com.engine.exceptions.NegativeNumberException;
 import com.engine.exceptions.OverlappingException;
@@ -36,7 +36,7 @@ public class Main {
             for (int i = 0; i < executionsQuantity; i ++){
                 bootstrapping = new Bootstrapping(new AirportStatistics());
                 airportStatisticsAnalysis.addStatistics(
-                    bootstrapping.startSimulation(40320d, new AirportRandomizer(), 5, 3000, durabilityList, new RunwayPrioritizer(), distributionList, new AircraftFactory())
+                    bootstrapping.startSimulation(40320d, new AirportRandomizer(), 5, 3000, durabilityList, new RunwayPrioritizer(), distributionList, new AircraftFactory(), new ArrivalFactory())
                 );
             }
             airportStatisticsAnalysis.processAnalysis();

@@ -1,6 +1,5 @@
 package com.engine.bootstrapping;
 
-import com.aeropuerto.scenario.airportEntity.Aircraft;
 import com.engine.FEL;
 import com.engine.Randomizer;
 import com.engine.comparators.EventPrioritizer;
@@ -8,8 +7,8 @@ import com.engine.comparators.ServerPrioritizer;
 import com.engine.distribution.Distribution;
 import com.engine.distribution.DistributionList;
 import com.engine.entity.EntityFactory;
-import com.engine.events.Arrival;
 import com.engine.events.Event;
+import com.engine.events.EventFactory;
 import com.engine.exceptions.NegativeNumberException;
 import com.engine.server.Servers;
 import com.engine.statistics.Statistics;
@@ -22,10 +21,10 @@ import com.engine.statistics.Statistics;
 
 public class Bootstrapping{
 
-    private FEL fel;
+    private final FEL fel;
     private Servers servers;
-    private Clock clock;
-    private Statistics statistics;
+    private final Clock clock;
+    private final Statistics statistics;
 
     public Bootstrapping(Statistics statistics) {
         this.fel = new FEL(new EventPrioritizer());
@@ -52,7 +51,8 @@ public class Bootstrapping{
     Distribution serverDurability,
     ServerPrioritizer serverPrioritizer,
     DistributionList distributionList,
-    EntityFactory entityFactory
+    EntityFactory entityFactory,
+    EventFactory eventFactory
     ) throws Exception {
     try {
         validateParameters(simulationLength, randomizer, serversQuantity, durability,
@@ -67,7 +67,7 @@ public class Bootstrapping{
 
         // Añadir primer evento
 
-        fel.addEvent(new Arrival(2, 0, entityFactory.create(), distributionList));
+        fel.addEvent(eventFactory.create(entityFactory,distributionList));
 
         // Comenzar simulación
         while (simulationLength >= Clock.clock) {
@@ -85,7 +85,6 @@ public class Bootstrapping{
         System.out.println();
         throw new IllegalArgumentException("Error al iniciar la simulación: " + e.getMessage());
     }catch (Exception e) {
-        e.printStackTrace();
          throw new Exception("Ha ocurrido un error inesperado: " + e.getMessage());
     }
     
