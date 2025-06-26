@@ -5,9 +5,9 @@ import com.engine.server.Server;
 import com.engine.server.Servers;
 
 /**
- * Esta clase almacena estadísticas de ocio y tránsito para cada servidor, y de la espera de las entidades
- * Realizará cálculos utilizando los métodos para las clases Idle, Transit y Wait
- * Deberá implementar los métodos (1) computeStatistics(), que realiza los cálculos de cada estadística que desee almacenarse de cada servidor y entidad (ej. ocio, espera, tránsito), y (2) computeGeneralStatistics, que realiza los cálculos y/o muestra las estadísticas de la simulación que al usuario le interese (ej. tiempos máximos, medios, mínimos)
+ * Almacena estadísticas tránsito para cada servidor, y de la espera de las entidades, ocio y durabilidad de los servidores, cantidad de arribos y salidas
+ * Realizará cálculos utilizando los métodos para las clases Transit y Wait
+ * Deberá implementar los métodos (1) computeStatistics(), que realiza los cálculos de cada estadística que desee almacenarse de cada servidor y entidad (ej. espera, tránsito), y (2) computeGeneralStatistics, que realiza los cálculos y/o muestra las estadísticas de la simulación que al usuario le interese (ej. tiempos máximos, medios, mínimos)
  */
 public abstract class Statistics {
 
@@ -15,8 +15,8 @@ public abstract class Statistics {
     private int arrivalInstances = 0;
     private int departureInstances = 0;
     
-    private Transit transitTotal;
-    private Wait waitTotal;
+    private final Transit transitTotal;
+    private final Wait waitTotal;
     private static double simulationLength;
     private Servers servers;
 
@@ -69,16 +69,15 @@ public abstract class Statistics {
     }
     
     public void incrementArrivalInstances(){
-        arrivalInstances++;
+        this.arrivalInstances++;
     }
     
-    // 
     public void incrementDepartureInstances(){
-        departureInstances++;
+        this.departureInstances++;
     }
 
     public static double getSimulationLength() {
-        return simulationLength;
+        return Statistics.simulationLength;
     }
 
     public static void setSimulationLength(double simulationLength) {

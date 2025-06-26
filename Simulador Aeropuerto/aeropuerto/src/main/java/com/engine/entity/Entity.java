@@ -3,14 +3,17 @@ package com.engine.entity;
 import com.engine.CodeGenerator;
 
 /**
- * Clase de la cual debera extenderse para especificar el tipo de entidad/es particular de cada simulación
+ * <p> Clase de la cual debera extenderse para especificar el tipo de entidad/es particular de cada simulación. Para luego implementar la clase EntityFactory. <\p>
  */
 public abstract class Entity {
 
-    private int code;
+    private final int code;
     private int serverId;
-    private EntityHistory entityHistory;
+    private final EntityHistory entityHistory;
     
+    /**
+     * Al crear una entidad se deberá especificar un generador de código
+    */
     public Entity(CodeGenerator codeGenerator) {
         this.code = codeGenerator.nextCode();
         this.serverId = 0;

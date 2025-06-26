@@ -7,8 +7,8 @@ import com.engine.comparators.EventPrioritizer;
 import com.engine.events.Event;
 
 public class FEL {
-    private List<Event> fel;
-    private EventPrioritizer eventPrioritizer;
+    private final List<Event> fel;
+    private final EventPrioritizer eventPrioritizer;
 
     public FEL(EventPrioritizer eventPrioritizer){
         fel = new ArrayList<>();

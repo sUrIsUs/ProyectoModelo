@@ -14,6 +14,13 @@ public class Parameter {
         this.standardDeviationSample = 0;
     }
     
+    /**
+     * <p> Calcula y muestra un intervalo de confianza de un parametro <\p>
+     * @param label nombre del parametro 
+     * @param executionsQuatity cantidad de muestras
+     * @param statisticsList lista con todos los datos de las ejecuciones
+     * @param mapper referencia al estadistico especificado en label. Ej: Statistics::getYourStats o stats -> stats.getYourStats
+    **/
     public void processParameter(String label, int executionsQuantity, List<Statistics> statisticsList, ToDoubleFunction<Statistics> mapper){
         this.meanSample = statisticsList.stream().mapToDouble(mapper).average().orElse(0.0);
         this.standardDeviationSample = statisticsList.stream()
@@ -25,8 +32,6 @@ public class Parameter {
         this.standardDeviationSample = Math.sqrt(this.standardDeviationSample);
         
         calculateConfidenceInterval(label, executionsQuantity);
-        // System.out.println("Media de medias: " + this.meanSample);
-        // System.out.println("Desviacion estandar: "+ this.standardDeviationSample);
         this.meanSample = 0;
         this.standardDeviationSample = 0;
     }

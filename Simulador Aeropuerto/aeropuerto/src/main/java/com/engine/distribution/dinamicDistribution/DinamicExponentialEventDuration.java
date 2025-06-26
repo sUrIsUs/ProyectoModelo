@@ -5,7 +5,7 @@ import com.engine.exceptions.ArraysNull;
 import com.engine.exceptions.NegativeNumberException;
 import com.engine.exceptions.OverlappingException;
 
-import java.lang.Math;
+
 
 public class DinamicExponentialEventDuration extends DinamicEventDuration {
 

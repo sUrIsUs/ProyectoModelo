@@ -5,11 +5,11 @@ import com.engine.distribution.Distribution;
 
 public class StaticNormalEventDuration implements Distribution{
     
-    private double muNormal;
-    private double sigmaNormal;
-    private Distribution distributionRandomVariate; 
-    private double muDistribution;
-    private double sigmaDistribution;
+    private final double muNormal;
+    private final double sigmaNormal;
+    private final Distribution distributionRandomVariate; 
+    private final double muDistribution;
+    private final double sigmaDistribution;
 
     public StaticNormalEventDuration( double  muNormal, double sigmaNormal, Distribution distributionRandomVariate, double muDistribution, double sigmaDistribution){
         this.muNormal = muNormal;

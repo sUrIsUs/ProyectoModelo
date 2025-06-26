@@ -2,11 +2,10 @@ package com.engine.distribution.staticDistribution;
 
 import com.engine.Randomizer;
 import com.engine.distribution.Distribution;
-import java.lang.Math;
 
 public class StaticExponentialEventDuration implements Distribution {
 
-    private double λ;
+    private final double λ;
 
     public StaticExponentialEventDuration(double λ){
         this.λ = λ;

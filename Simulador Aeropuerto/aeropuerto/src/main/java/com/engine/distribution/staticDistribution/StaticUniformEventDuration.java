@@ -5,8 +5,8 @@ import com.engine.distribution.Distribution;
 
 public class StaticUniformEventDuration implements Distribution {
     
-    private double a;
-    private double b;
+    private final double a;
+    private final double b;
 
     public StaticUniformEventDuration(double a, double b){
         this.a = a;
